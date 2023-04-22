@@ -1,0 +1,56 @@
+#! /bin/bash
+# Script to run the oslcrs Python application.  This script should be run
+# from within the "oslcrs" subdirectory.
+#
+# Bryan Sutula, Red Hat,  Revised 11/3/21
+# Released under GPL version 2
+
+
+# Ensure that we're in a subdirectory with the necessary python scripts, and
+# that there's a parent directory with the script that sets up the environment.
+if [ ! -r "oslcrs.py" -o ! -r "analyze.py" ]
+then
+  echo "Failed to find oslcrs.py or analyze.py in the current subdirectory." >&2
+  echo "Are you executing the oslcrs script from a different subdirectory?" >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+if [ ! -r "../set_env" ]
+then
+  echo "Failed to find set_env in the parent directory." >&2
+  echo "See the README for instructions on setting up the environment." >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+if [ ! -d "../oslcrs-env" ]
+then
+  echo "Failed to find oslcrs-env in the parent directory." >&2
+  echo "See the README for instructions on setting up the environment." >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+
+
+# Execute the "set_env" script to set any shell variables and prepare the
+# python environment.
+. "../set_env"
+if [ $? -ne 0 ]
+then
+  echo "Failure from ../set_env script.  Please diagnose this and restart." >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+
+
+# Ensure that we are running from within the Python penv we set up previously.
+source ../oslcrs-env/bin/activate
+if [ $? -ne 0 ]
+then
+  echo "Failure from Python penv.  Please diagnose this and restart." >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+
+
+# Everything should be set up.  Execute the main python flask application.
+exec python3 oslcrs.py

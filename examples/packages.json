@@ -1,0 +1,4026 @@
+[
+  {
+    "source": {
+      "name": "ansible-2.4.2.0-2.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/ansible-2.4.2.0-2.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ansible-collection-redhat-satellite-2.0.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ansible-collection-redhat-satellite-2.0.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ansible-runner-1.4.6-1.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ansible-runner-1.4.6-1.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ansiblerole-foreman_scap_client-0.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ansiblerole-foreman_scap_client-0.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ansiblerole-insights-client-1.7.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ansiblerole-insights-client-1.7.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ansiblerole-satellite-receptor-installer-0.6.13-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ansiblerole-satellite-receptor-installer-0.6.13-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "candlepin-3.1.26-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/candlepin-3.1.26-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "createrepo_c-0.17.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/createrepo_c-0.17.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "fio-3.1-2.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/fio-3.1-2.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-2.3.1.20-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-2.3.1.20-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-bootloaders-redhat-202005201200-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-bootloaders-redhat-202005201200-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-discovery-image-3.7.4-2.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-discovery-image-3.7.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-discovery-image-service-1.0.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-discovery-image-service-1.0.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-installer-2.3.1.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-installer-2.3.1.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-proxy-2.3.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-proxy-2.3.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "foreman-selinux-2.3.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/foreman-selinux-2.3.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "future-0.16.0-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/future-0.16.0-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "future-0.16.0-11.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/future-0.16.0-11.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "gofer-2.11.9-1.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Workstation/en/SAT-TOOLS/SRPMS/gofer-2.11.9-1.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "gofer-2.12.5-7.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/gofer-2.12.5-7.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "gofer-2.12.5-7.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/gofer-2.12.5-7.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "hfsplus-tools-332.14-12.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/hfsplus-tools-332.14-12.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-3.18.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/katello-3.18.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-certs-tools-2.7.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/katello-certs-tools-2.7.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-client-bootstrap-1.7.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/katello-client-bootstrap-1.7.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-host-tools-3.5.4-1.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Workstation/en/SAT-TOOLS/SRPMS/katello-host-tools-3.5.4-1.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-host-tools-3.5.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-TOOLS/SRPMS/katello-host-tools-3.5.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-host-tools-3.5.4-1.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/katello-host-tools-3.5.4-1.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "katello-selinux-3.5.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/katello-selinux-3.5.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "keycloak-httpd-client-install-1.2.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/keycloak-httpd-client-install-1.2.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "kobo-0.5.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/kobo-0.5.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "libcomps-0.1.15-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/libcomps-0.1.15-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "libmodulemd-1.7.0-1.pulp.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/libmodulemd-1.7.0-1.pulp.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "libmodulemd2-2.9.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/libmodulemd2-2.9.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "libsolv-0.7.12-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/libsolv-0.7.12-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "libwebsockets-2.4.2-2.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/libwebsockets-2.4.2-2.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "livecd-tools-20.4-1.6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/livecd-tools-20.4-1.6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "mod_xsendfile-0.12-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/mod_xsendfile-0.12-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "ostree-2017.1-2.atomic.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/ostree-2017.1-2.atomic.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pcp-mmvstatsd-0.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pcp-mmvstatsd-0.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-2.21.4-2.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://download.eng.bos.redhat.com/brewroot/vol/rhel-6/packages/pulp/2.21.4/2.el6sat/src/pulp-2.21.4-2.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-2.21.5-2.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SAT-TOOLS/SRPMS/pulp-2.21.5-2.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-2.21.5-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-2.21.5-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-docker-3.2.9-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-docker-3.2.9-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-katello-1.0.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-katello-1.0.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-ostree-1.3.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-ostree-1.3.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-puppet-2.21.5-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-puppet-2.21.5-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-rpm-2.21.4-2.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://download.eng.bos.redhat.com/brewroot/vol/rhel-6/packages/pulp-rpm/2.21.4/2.el6sat/src/pulp-rpm-2.21.4-2.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-rpm-2.21.5-2.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SAT-TOOLS/SRPMS/pulp-rpm-2.21.5-2.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulp-rpm-2.21.5-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulp-rpm-2.21.5-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pulpcore-selinux-1.2.3-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pulpcore-selinux-1.2.3-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppet-agent-6.19.1-1.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/puppet-agent-6.19.1-1.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppet-agent-6.19.1-2.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SAT-TOOLS/SRPMS/puppet-agent-6.19.1-2.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppet-agent-6.19.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/puppet-agent-6.19.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppet-agent-oauth-0.5.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/puppet-agent-oauth-0.5.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppet-foreman_scap_client-0.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/puppet-foreman_scap_client-0.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppetlabs-stdlib-5.2.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/puppetlabs-stdlib-5.2.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "puppetserver-6.14.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/puppetserver-6.14.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pycairo-1.16.3-9.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pycairo-1.16.3-9.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "pygobject3-3.28.3-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/pygobject3-3.28.3-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-aiodns-2.0.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-aiodns-2.0.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-aiofiles-0.6.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-aiofiles-0.6.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-aiohttp-3.6.2-4.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-aiohttp-3.6.2-4.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-amqp-2.2.2-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-amqp-2.2.2-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-anyjson-0.3.3-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-anyjson-0.3.3-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-argcomplete-1.7.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-TOOLS/SRPMS/python-argcomplete-1.7.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-async-timeout-3.0.1-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-async-timeout-3.0.1-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-attrs-19.3.0-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-attrs-19.3.0-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-backoff-1.10.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-backoff-1.10.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-beautifulsoup4-4.6.3-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-TOOLS/SRPMS/python-beautifulsoup4-4.6.3-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-beautifulsoup4-4.6.3-2.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/python-beautifulsoup4-4.6.3-2.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-billiard-3.5.0.3-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-billiard-3.5.0.3-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-blinker-1.3-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-blinker-1.3-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-celery-4.0.2-9.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-celery-4.0.2-9.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-certifi-2020.6.20-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-certifi-2020.6.20-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-cffi-1.14.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-cffi-1.14.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-chardet-3.0.4-10.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-chardet-3.0.4-10.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-click-6.7-9.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-click-6.7-9.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-crane-3.3.1-9.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-crane-3.3.1-9.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-cryptography-2.9.2-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-cryptography-2.9.2-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-daemon-2.1.2-7.el7at.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-daemon-2.1.2-7.el7at.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-dateutil-2.8.1-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-dateutil-2.8.1-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-defusedxml-0.6.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-defusedxml-0.6.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-diff-match-patch-20200713-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-diff-match-patch-20200713-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-1.11.29-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-1.11.29-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-currentuser-0.5.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-currentuser-0.5.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-filter-2.3.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-filter-2.3.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-guardian-2.3.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-guardian-2.3.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-import-export-2.3.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-import-export-2.3.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-lifecycle-0.8.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-lifecycle-0.8.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-prometheus-2.1.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-prometheus-2.1.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-django-readonly-field-1.0.5-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-django-readonly-field-1.0.5-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-djangorestframework-3.11.2-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-djangorestframework-3.11.2-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-djangorestframework-queryfields-1.0.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-djangorestframework-queryfields-1.0.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-drf-access-policy-0.7.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-drf-access-policy-0.7.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-drf-nested-routers-0.91-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-drf-nested-routers-0.91-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-drf-spectacular-0.9.13-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-drf-spectacular-0.9.13-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-dynaconf-3.1.2-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-dynaconf-3.1.2-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-ecdsa-0.11-4.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/python-ecdsa-0.11-4.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-ecdsa-0.13.3-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-ecdsa-0.13.3-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-et-xmlfile-1.0.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-et-xmlfile-1.0.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-flask-0.12.2-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-flask-0.12.2-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-future-0.18.2-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-future-0.18.2-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-gnupg-0.3.7-1.el7ui.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-gnupg-0.3.7-1.el7ui.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-gunicorn-20.0.4-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-gunicorn-20.0.4-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-httplib2-0.9.2-1.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/python-httplib2-0.9.2-1.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-idna-2.10-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-idna-2.10-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-idna-ssl-1.1.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-idna-ssl-1.1.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-importlib-metadata-1.7.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-importlib-metadata-1.7.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-inflection-0.5.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-inflection-0.5.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-isodate-0.5.0-4.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SATELLITE/SRPMS/python-isodate-0.5.0-4.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-isodate-0.5.4-12.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-isodate-0.5.4-12.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-itsdangerous-0.24-15.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-itsdangerous-0.24-15.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-jdcal-1.4.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-jdcal-1.4.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-jinja2-2.10-10.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-jinja2-2.10-10.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-jmespath-0.9.0-4.el7ae.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/python-jmespath-0.9.0-4.el7ae.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-jmespath-0.9.0-6.el7_7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-jmespath-0.9.0-6.el7_7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-jsonschema-3.2.0-4.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-jsonschema-3.2.0-4.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-kid-0.9.6-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-kid-0.9.6-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-kombu-4.0.2-14.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-kombu-4.0.2-14.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-lockfile-0.11.0-10.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-lockfile-0.11.0-10.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-markuppy-1.14-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-markuppy-1.14-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-markupsafe-0.23-21.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-markupsafe-0.23-21.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-mongoengine-0.10.5-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-mongoengine-0.10.5-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-multidict-4.7.6-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-multidict-4.7.6-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-nectar-1.6.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-nectar-1.6.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-oauth2-1.5.211-8.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-oauth2-1.5.211-8.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-odfpy-1.4.1-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-odfpy-1.4.1-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-okaara-1.0.37-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-okaara-1.0.37-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-openpyxl-3.0.5-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-openpyxl-3.0.5-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-paramiko-2.1.1-2.el7ae.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/python-paramiko-2.1.1-2.el7ae.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-passlib-1.6.5-2.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/python-passlib-1.6.5-2.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pexpect-4.6-1.el7at.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pexpect-4.6-1.el7at.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-productmd-1.31-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-productmd-1.31-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-prometheus-client-0.7.1-2.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-prometheus-client-0.7.1-2.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-psutil-5.7.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-psutil-5.7.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-psutil-5.7.2-2.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/python-psutil-5.7.2-2.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-psycopg2-2.8.6-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-psycopg2-2.8.6-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-ptyprocess-0.5.2-3.el7at.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-ptyprocess-0.5.2-3.el7at.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulp-certguard-1.0.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulp-certguard-1.0.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulp-container-2.1.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulp-container-2.1.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulp-file-1.3.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulp-file-1.3.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulp-rpm-3.9.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulp-rpm-3.9.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulp_2to3_migration-0.10.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulp_2to3_migration-0.10.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pulpcore-3.7.3-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pulpcore-3.7.3-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pyOpenSSL-19.1.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pyOpenSSL-19.1.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pycares-3.1.1-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pycares-3.1.1-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pycparser-2.20-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pycparser-2.20-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pycryptodomex-3.9.8-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pycryptodomex-3.9.8-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pycurl-7.43.0.2-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pycurl-7.43.0.2-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pygtrie-2.3.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pygtrie-2.3.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pyjwkest-1.4.2-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pyjwkest-1.4.2-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pyjwt-1.7.1-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pyjwt-1.7.1-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pymongo-3.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pymongo-3.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pyrsistent-0.17.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pyrsistent-0.17.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pytz-2020.4-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pytz-2020.4-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-pyyaml-5.3.1-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-pyyaml-5.3.1-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-qpid-1.35.0-5.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-qpid-1.35.0-5.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-receptor-satellite-1.3.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-receptor-satellite-1.3.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-redis-3.5.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-redis-3.5.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-requests-2.24.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-requests-2.24.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-rq-1.5.2-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-rq-1.5.2-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-semantic_version-2.2.0-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-semantic_version-2.2.0-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-simplejson-3.2.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-simplejson-3.2.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-six-1.15.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-six-1.15.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-sqlparse-0.4.1-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-sqlparse-0.4.1-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-tablib-2.0.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-tablib-2.0.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-twisted-16.4.1-12.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-twisted-16.4.1-12.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-typing-3.7.4.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-typing-3.7.4.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-typing-extensions-3.7.4.3-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-typing-extensions-3.7.4.3-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-uritemplate-3.0.1-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-uritemplate-3.0.1-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-url-normalize-1.4.3-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-url-normalize-1.4.3-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-urllib3-1.25.11-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-urllib3-1.25.11-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-urlman-1.3.0-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-urlman-1.3.0-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-vine-1.1.3-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-vine-1.1.3-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-werkzeug-0.12.2-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-werkzeug-0.12.2-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-whitenoise-5.2.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-whitenoise-5.2.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-xlrd-1.2.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-xlrd-1.2.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-xlwt-1.3.0-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-xlwt-1.3.0-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-yarl-1.6.2-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-yarl-1.6.2-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-zipp-3.4.0-2.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-zipp-3.4.0-2.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python-zope-interface-4.0.5-4.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python-zope-interface-4.0.5-4.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-cairo-1.10.0-25.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-cairo-1.10.0-25.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-chardet-3.0.4-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-chardet-3.0.4-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-click-7.1.2-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-click-7.1.2-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-django-2.2.18-1.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-django-2.2.18-1.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-gnupg-0.4.6-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-gnupg-0.4.6-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-gobject-3.22.0-8.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-gobject-3.22.0-8.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-iniparse-0.4-33.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-iniparse-0.4-33.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-jinja2-2.11.2-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-jinja2-2.11.2-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-markupsafe-1.1.1-4.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-markupsafe-1.1.1-4.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-mongoengine-0.20.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-mongoengine-0.20.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-pymongo-3.11.0-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-pymongo-3.11.0-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-rpm-4.11.3-8.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-rpm-4.11.3-8.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "python3-semantic-version-2.8.5-3.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/python3-semantic-version-2.8.5-3.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "qpid-cpp-1.36.0-28.el7amq.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/qpid-cpp-1.36.0-28.el7amq.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "qpid-dispatch-1.5.0-4.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/qpid-dispatch-1.5.0-4.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "qpid-proton-0.28.0-3.el6_10.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Workstation/en/SAT-TOOLS/SRPMS/qpid-proton-0.28.0-3.el6_10.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "qpid-proton-0.28.0-3.el8.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/qpid-proton-0.28.0-3.el8.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "qpid-proton-0.28.0-4.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/qpid-proton-0.28.0-4.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "receptor-0.6.3-1.el7ar.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/receptor-0.6.3-1.el7ar.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "redhat-access-insights-puppet-1.0.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/redhat-access-insights-puppet-1.0.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "repoview-0.6.6-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/repoview-0.6.6-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rh-postgresql12-postgresql-evr-0.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rh-postgresql12-postgresql-evr-0.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rhel8-kickstart-setup-0.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rhel8-kickstart-setup-0.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-clamp-0.6.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-clamp-0.6.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-facter-2.4.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-facter-2.4.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-fast_gettext-1.1.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-fast_gettext-1.1.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-foreman_maintain-0.7.8-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/rubygem-foreman_maintain-0.7.8-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-foreman_scap_client-0.4.7-1.el6sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SAT-TOOLS/SRPMS/rubygem-foreman_scap_client-0.4.7-1.el6sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-foreman_scap_client-0.4.7-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-foreman_scap_client-0.4.7-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-foreman_scap_client-0.4.7-1.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/rubygem-foreman_scap_client-0.4.7-1.el8sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-highline-1.6.21-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-highline-1.6.21-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-highline-1.7.8-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-highline-1.7.8-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-json-1.4.6-2.el6.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/6Server/en/SATELLITE/SRPMS/rubygem-json-1.4.6-2.el6.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-newt-0.9.6-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-newt-0.9.6-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-oauth-0.5.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-oauth-0.5.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-passenger-4.0.18-24.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-passenger-4.0.18-24.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-rack-1.6.12-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-rack-1.6.12-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "rubygem-rake-0.9.2.2-41.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/rubygem-rake-0.9.2.2-41.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "saslwrapper-0.22-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/saslwrapper-0.22-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-6.9.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/satellite-6.9.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-clone-2.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/satellite-clone-2.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-installer-6.9.0.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/satellite-installer-6.9.0.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-maintain-0.0.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/satellite-maintain-0.0.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-monitoring-1.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/satellite-monitoring-1.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "satellite-tune-1.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/satellite-tune-1.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "sshpass-1.06-2.el7.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-MAINTENANCE/SRPMS/sshpass-1.06-2.el7.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "subscription-manager-1.27.5-4.el7pc.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/subscription-manager-1.27.5-4.el7pc.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-6.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-6.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actioncable-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actioncable-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actionmailbox-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actionmailbox-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actionmailer-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actionmailer-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actionpack-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actionpack-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actiontext-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actiontext-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-actionview-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-actionview-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activejob-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activejob-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activemodel-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activemodel-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activerecord-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activerecord-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activerecord-import-1.0.0-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activerecord-import-1.0.0-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activerecord-session_store-1.1.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activerecord-session_store-1.1.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activestorage-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activestorage-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-activesupport-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-activesupport-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-addressable-2.6.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-addressable-2.6.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-algebrick-0.7.3-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-algebrick-0.7.3-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-amazing_print-1.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-amazing_print-1.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ancestry-3.0.7-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ancestry-3.0.7-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-anemone-0.7.2-22.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-anemone-0.7.2-22.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-angular-rails-templates-1.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-angular-rails-templates-1.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ansi-1.5.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ansi-1.5.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-apipie-bindings-0.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-apipie-bindings-0.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-apipie-dsl-2.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-apipie-dsl-2.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-apipie-params-0.0.5-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-apipie-params-0.0.5-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-apipie-rails-0.5.17-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-apipie-rails-0.5.17-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-audited-4.9.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-audited-4.9.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-azure_mgmt_compute-0.18.7-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-azure_mgmt_compute-0.18.7-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-azure_mgmt_network-0.19.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-azure_mgmt_network-0.19.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-azure_mgmt_resources-0.17.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-azure_mgmt_resources-0.17.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-azure_mgmt_storage-0.17.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-azure_mgmt_storage-0.17.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-azure_mgmt_subscriptions-0.18.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-azure_mgmt_subscriptions-0.18.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-bcrypt-3.1.12-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-bcrypt-3.1.12-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-builder-3.2.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-builder-3.2.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-bundler_ext-0.4.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-bundler_ext-0.4.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-clamp-1.1.2-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-clamp-1.1.2-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-coffee-rails-5.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-coffee-rails-5.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-coffee-script-2.4.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-coffee-script-2.4.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-coffee-script-source-1.12.2-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-coffee-script-source-1.12.2-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-concurrent-ruby-1.1.6-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-concurrent-ruby-1.1.6-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-concurrent-ruby-edge-0.6.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-concurrent-ruby-edge-0.6.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-connection_pool-2.2.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-connection_pool-2.2.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-crass-1.0.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-crass-1.0.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-css_parser-1.4.7-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-css_parser-1.4.7-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-daemons-1.2.3-7.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-daemons-1.2.3-7.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-deacon-1.0.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-deacon-1.0.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-declarative-0.0.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-declarative-0.0.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-declarative-option-0.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-declarative-option-0.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-deep_cloneable-3.0.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-deep_cloneable-3.0.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-deface-1.5.3-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-deface-1.5.3-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-diffy-3.0.1-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-diffy-3.0.1-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-domain_name-0.5.20160310-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-domain_name-0.5.20160310-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-dynflow-1.4.7-1.fm2_1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-dynflow-1.4.7-1.fm2_1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-erubi-1.9.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-erubi-1.9.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-excon-0.76.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-excon-0.76.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-execjs-2.7.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-execjs-2.7.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-facter-2.4.0-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-facter-2.4.0-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-faraday-0.17.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-faraday-0.17.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-faraday-cookie_jar-0.0.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-faraday-cookie_jar-0.0.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-faraday_middleware-0.13.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-faraday_middleware-0.13.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fast_gettext-1.4.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fast_gettext-1.4.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ffi-1.12.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ffi-1.12.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-aws-3.6.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-aws-3.6.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-core-2.1.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-core-2.1.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-google-1.11.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-google-1.11.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-json-1.2.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-json-1.2.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-kubevirt-1.3.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-kubevirt-1.3.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-libvirt-0.7.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-libvirt-0.7.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-openstack-1.0.8-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-openstack-1.0.8-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-ovirt-1.2.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-ovirt-1.2.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-vsphere-3.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-vsphere-3.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fog-xml-0.1.2-8.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fog-xml-0.1.2-8.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman-tasks-3.0.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman-tasks-3.0.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman-tasks-core-0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman-tasks-core-0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_ansible-6.1.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_ansible-6.1.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_ansible_core-4.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_ansible_core-4.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_azure_rm-2.1.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_azure_rm-2.1.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_bootdisk-17.0.2-2.fm2_1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_bootdisk-17.0.2-2.fm2_1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_discovery-16.3.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_discovery-16.3.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_hooks-0.3.17-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_hooks-0.3.17-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_kubevirt-0.1.8-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_kubevirt-0.1.8-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_leapp-0.1.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_leapp-0.1.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_openscap-4.1.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_openscap-4.1.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_remote_execution-4.2.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_remote_execution-4.2.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_remote_execution_core-1.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_remote_execution_core-1.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_rh_cloud-3.0.18.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_rh_cloud-3.0.18.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_templates-9.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_templates-9.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_theme_satellite-7.0.1.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_theme_satellite-7.0.1.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-foreman_virt_who_configure-0.5.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-foreman_virt_who_configure-0.5.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-formatador-0.2.1-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-formatador-0.2.1-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-friendly_id-5.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-friendly_id-5.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-fx-0.5.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-fx-0.5.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-get_process_mem-0.2.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-get_process_mem-0.2.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-gettext-3.1.4-10.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-gettext-3.1.4-10.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-gettext_i18n_rails-1.8.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-gettext_i18n_rails-1.8.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-git-1.5.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-git-1.5.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-gitlab-sidekiq-fetcher-0.6.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-gitlab-sidekiq-fetcher-0.6.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-globalid-0.4.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-globalid-0.4.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-google-api-client-0.33.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-google-api-client-0.33.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-google-cloud-env-1.3.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-google-cloud-env-1.3.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-googleauth-0.13.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-googleauth-0.13.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-graphql-1.8.14-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-graphql-1.8.14-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-graphql-batch-0.3.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-graphql-batch-0.3.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-gssapi-1.2.0-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-gssapi-1.2.0-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli-2.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli-2.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman-2.3.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman-2.3.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_admin-0.0.9-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_admin-0.0.9-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_ansible-0.3.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_ansible-0.3.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_azure_rm-0.2.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_azure_rm-0.2.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_bootdisk-0.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_bootdisk-0.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_discovery-1.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_discovery-1.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_docker-0.0.7-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_docker-0.0.7-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_kubevirt-0.1.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_kubevirt-0.1.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_leapp-0.1.0-2.fm2_1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_leapp-0.1.0-2.fm2_1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_openscap-0.1.12-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_openscap-0.1.12-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_remote_execution-0.2.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_remote_execution-0.2.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_tasks-0.0.15-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_tasks-0.0.15-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_templates-0.2.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_templates-0.2.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_foreman_virt_who_configure-0.0.7-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_foreman_virt_who_configure-0.0.7-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hammer_cli_katello-0.24.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hammer_cli_katello-0.24.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-hashie-3.6.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-hashie-3.6.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-highline-1.7.8-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-highline-1.7.8-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-http-3.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-http-3.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-http-cookie-1.0.2-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-http-cookie-1.0.2-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-http-form_data-2.1.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-http-form_data-2.1.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-http_parser.rb-0.6.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-http_parser.rb-0.6.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-httpclient-2.8.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-httpclient-2.8.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-i18n-1.8.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-i18n-1.8.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-infoblox-3.0.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-infoblox-3.0.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ipaddress-0.8.0-11.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ipaddress-0.8.0-11.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-jgrep-1.3.3-12.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-jgrep-1.3.3-12.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-journald-logger-2.0.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-journald-logger-2.0.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-journald-native-1.0.11-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-journald-native-1.0.11-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-jwt-2.2.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-jwt-2.2.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-kafo-6.2.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-kafo-6.2.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-kafo_parsers-1.1.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-kafo_parsers-1.1.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-kafo_wizards-0.0.1-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-kafo_wizards-0.0.1-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-katello-3.18.1.22-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-katello-3.18.1.22-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-kubeclient-4.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-kubeclient-4.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ldap_fluff-0.4.7-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ldap_fluff-0.4.7-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-little-plugger-1.1.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-little-plugger-1.1.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-locale-2.0.9-13.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-locale-2.0.9-13.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-logging-2.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-logging-2.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-logging-journald-2.0.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-logging-journald-2.0.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-loofah-2.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-loofah-2.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mail-2.7.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mail-2.7.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-marcel-0.3.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-marcel-0.3.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-memoist-0.16.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-memoist-0.16.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-method_source-0.9.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-method_source-0.9.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mime-types-3.2.2-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mime-types-3.2.2-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mime-types-data-3.2018.0812-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mime-types-data-3.2018.0812-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mimemagic-0.3.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mimemagic-0.3.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mini_mime-1.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mini_mime-1.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mini_portile2-2.4.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mini_portile2-2.4.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ms_rest-0.7.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ms_rest-0.7.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ms_rest_azure-0.11.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ms_rest_azure-0.11.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-multi_json-1.14.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-multi_json-1.14.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-multipart-post-2.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-multipart-post-2.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-mustermann-1.0.2-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-mustermann-1.0.2-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-net-ldap-0.16.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-net-ldap-0.16.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-net-ping-2.0.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-net-ping-2.0.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-net-scp-1.2.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-net-scp-1.2.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-net-ssh-4.2.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-net-ssh-4.2.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-net-ssh-krb-0.4.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-net-ssh-krb-0.4.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-netrc-0.11.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-netrc-0.11.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-newt-0.9.7-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-newt-0.9.7-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-nio4r-2.5.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-nio4r-2.5.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-nokogiri-1.10.9-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-nokogiri-1.10.9-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-oauth-0.5.4-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-oauth-0.5.4-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-openscap-0.4.9-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-openscap-0.4.9-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-optimist-3.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-optimist-3.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-os-1.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-os-1.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ovirt-engine-sdk-4.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ovirt-engine-sdk-4.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ovirt_provision_plugin-2.0.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ovirt_provision_plugin-2.0.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-parse-cron-0.1.4-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-parse-cron-0.1.4-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-passenger-4.0.18-26.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-passenger-4.0.18-26.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pg-1.1.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pg-1.1.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-polyglot-0.3.5-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-polyglot-0.3.5-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-powerbar-2.0.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-powerbar-2.0.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-prometheus-client-1.0.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-prometheus-client-1.0.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-promise.rb-0.7.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-promise.rb-0.7.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-public_suffix-3.0.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-public_suffix-3.0.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_2to3_migration_client-0.7.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_2to3_migration_client-0.7.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_ansible_client-0.4.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_ansible_client-0.4.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_certguard_client-1.0.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_certguard_client-1.0.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_container_client-2.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_container_client-2.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_deb_client-2.7.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_deb_client-2.7.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_file_client-1.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_file_client-1.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulp_rpm_client-3.9.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulp_rpm_client-3.9.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-pulpcore_client-3.7.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-pulpcore_client-3.7.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-puma-4.3.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-puma-4.3.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-puma-plugin-systemd-0.1.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-puma-plugin-systemd-0.1.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-quantile-0.2.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-quantile-0.2.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rabl-0.14.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rabl-0.14.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rack-2.2.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rack-2.2.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rack-cors-1.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rack-cors-1.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rack-jsonp-1.3.1-9.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rack-jsonp-1.3.1-9.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rack-protection-2.0.3-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rack-protection-2.0.3-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rack-test-1.1.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rack-test-1.1.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rails-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rails-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rails-dom-testing-2.0.3-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rails-dom-testing-2.0.3-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rails-html-sanitizer-1.3.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rails-html-sanitizer-1.3.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rails-i18n-6.0.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rails-i18n-6.0.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-railties-6.0.3.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-railties-6.0.3.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rainbow-2.2.1-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rainbow-2.2.1-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rb-inotify-0.9.7-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rb-inotify-0.9.7-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rbovirt-0.1.7-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rbovirt-0.1.7-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rbvmomi-2.2.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rbvmomi-2.2.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-record_tag_helper-1.0.1-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-record_tag_helper-1.0.1-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-recursive-open-struct-1.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-recursive-open-struct-1.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-redfish_client-0.5.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-redfish_client-0.5.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-redhat_access-2.2.19-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-redhat_access-2.2.19-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-redhat_access_lib-1.1.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-redhat_access_lib-1.1.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-redis-4.1.2-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-redis-4.1.2-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-representable-3.0.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-representable-3.0.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-responders-3.0.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-responders-3.0.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rest-client-2.0.2-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rest-client-2.0.2-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-retriable-3.1.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-retriable-3.1.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rkerberos-0.1.5-18.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rkerberos-0.1.5-18.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-roadie-3.4.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-roadie-3.4.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-roadie-rails-2.1.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-roadie-rails-2.1.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-robotex-1.0.0-21.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-robotex-1.0.0-21.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rsec-0.4.3-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rsec-0.4.3-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ruby-libvirt-0.7.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ruby-libvirt-0.7.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ruby2ruby-2.4.2-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ruby2ruby-2.4.2-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-ruby_parser-3.10.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-ruby_parser-3.10.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-rubyipmi-0.10.0-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-rubyipmi-0.10.0-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-runcible-2.13.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-runcible-2.13.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-safemode-1.3.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-safemode-1.3.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-scoped_search-4.1.9-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-scoped_search-4.1.9-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sd_notify-0.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sd_notify-0.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-secure_headers-6.3.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-secure_headers-6.3.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sequel-5.7.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sequel-5.7.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-server_sent_events-0.1.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-server_sent_events-0.1.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sexp_processor-4.10.0-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sexp_processor-4.10.0-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sidekiq-5.2.7-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sidekiq-5.2.7-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-signet-0.14.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-signet-0.14.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sinatra-2.0.3-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sinatra-2.0.3-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_ansible-3.0.1-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_ansible-3.0.1-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_dhcp_infoblox-0.0.16-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_dhcp_infoblox-0.0.16-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_dhcp_remote_isc-0.0.5-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_dhcp_remote_isc-0.0.5-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_discovery-1.0.5-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_discovery-1.0.5-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_discovery_image-1.3.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_discovery_image-1.3.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_dns_infoblox-1.1.0-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_dns_infoblox-1.1.0-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_dynflow-0.3.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_dynflow-0.3.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_dynflow_core-0.3.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_dynflow_core-0.3.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_openscap-0.7.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_openscap-0.7.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_pulp-2.1.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_pulp-2.1.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-smart_proxy_remote_execution_ssh-0.3.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-smart_proxy_remote_execution_ssh-0.3.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sprockets-4.0.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sprockets-4.0.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sprockets-rails-3.2.1-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sprockets-rails-3.2.1-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sqlite3-1.3.13-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sqlite3-1.3.13-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-sshkey-1.9.0-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-sshkey-1.9.0-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-statsd-instrument-2.1.4-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-statsd-instrument-2.1.4-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-stomp-1.4.9-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-stomp-1.4.9-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-text-1.3.0-7.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-text-1.3.0-7.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-thor-1.0.1-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-thor-1.0.1-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-thread_safe-0.3.6-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-thread_safe-0.3.6-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-tilt-2.0.8-4.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-tilt-2.0.8-4.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-timeliness-0.3.10-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-timeliness-0.3.10-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-tzinfo-1.2.6-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-tzinfo-1.2.6-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-uber-0.1.0-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-uber-0.1.0-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-unf-0.1.3-7.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-unf-0.1.3-7.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-unf_ext-0.0.7.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-unf_ext-0.0.7.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-unicode-0.4.4.4-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-unicode-0.4.4.4-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-unicode-display_width-1.0.5-5.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-unicode-display_width-1.0.5-5.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-validates_lengths_from_database-0.5.0-7.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-validates_lengths_from_database-0.5.0-7.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-webpack-rails-0.9.8-6.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-webpack-rails-0.9.8-6.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-websocket-driver-0.7.1-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-websocket-driver-0.7.1-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-websocket-extensions-0.1.5-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-websocket-extensions-0.1.5-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-will_paginate-3.1.7-3.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-will_paginate-3.1.7-3.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-xmlrpc-0.3.0-2.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-xmlrpc-0.3.0-2.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tfm-rubygem-zeitwerk-2.2.2-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SATELLITE/SRPMS/tfm-rubygem-zeitwerk-2.2.2-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tracer-0.7.3-1.el7sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/7Server/en/SAT-TOOLS/SRPMS/tracer-0.7.3-1.el7sat.src.rpm"
+      }
+    }
+  },
+  {
+    "source": {
+      "name": "tracer-0.7.3-1.el8sat.src.rpm",
+      "srpm": {
+        "fetch_url": "http://ftp.redhat.com/pub/redhat/linux/enterprise/8Base/en/SAT-TOOLS/SRPMS/tracer-0.7.3-1.el8sat.src.rpm"
+      }
+    }
+  }
+]

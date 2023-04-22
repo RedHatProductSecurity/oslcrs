@@ -1,0 +1,117 @@
+# Create release manifest json structure for use with oslcrs
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  4/8/22
+# Released under the GPL license, version 2
+
+
+import sys
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import argparse
+import json
+
+
+# Local functions
+
+# People provide lists of packages in a number of different forms.  oslcrs
+# tries to keep just the minimum "NVR" name.  This function attempts to
+# remove common suffixes so that we're working with just NVRs.  We also
+# remove trailing ',' characters, since this can be a common problem.
+def nvr(package):
+    # Note that ".rpm" needs to be first, so that any trailing ".rpm" in the
+    # package name can be taken off before the architecture suffixes.
+    for suffix in [",", ".rpm", ".src", ".noarch",
+                   ".aarch64", ".i686", ".ppc", ".ppc64", ".ppc64le",
+                   ".s390", ".s390x", ".x86_64"
+                  ]:
+        suffix_len = len(suffix)
+        if package[-suffix_len:] == suffix:
+            package = package[:-suffix_len]
+    return package
+
+
+# This reads an input file, line by line, and tries to clean up any extra
+# messes that are readily identifiable.  See the nvr() function above for
+# most of the clean-up details.  An array of strings is returned.
+def read_file_strings(filename):
+    try:
+        with open(filename, 'r') as f:
+            contents = [ nvr(l.strip()) for l in f.readlines() ]
+        f.close()
+    except Exception as e:
+        print(f"Can't read input file {filename}")
+        print(e)
+        sys.exit(1)
+    return contents
+
+
+# Parse the command line and handle any command line errors first
+parser = argparse.ArgumentParser()
+
+# We need a product name and version in order to produce anything at all
+parser.add_argument("-p", "--product", type=str, required=True,
+                    help="the product name (not displayname) of the product")
+parser.add_argument("-r", "--release", type=str, required=True,
+                    help="the release or version name of this release")
+
+# All the following (including file name parameters) are optional parameters.
+parser.add_argument("-n", "--notes", type=str, default="",
+                    help="the notes that are displayed for this release")
+
+# These specify files containing package manifest lists.  If the parameter
+# isn't present, an empty manifest section is produced, which is probably
+# what the user intends.
+parser.add_argument("-c", "--containers", type=str, default="",
+                    help="file CONTAINERS is a list of container references")
+parser.add_argument("-s", "--src-packages", type=str, default="",
+                    help="file SRC_PACKAGES is a list of source package NVRs")
+parser.add_argument("-b", "--bin-packages", type=str, default="",
+                    help="file BIN_PACKAGES is a list of binary package NVRs")
+args = parser.parse_args()              # Parse the arguments
+
+
+# Script global variables
+containers = []                         # list of container references
+src_pkgs = []                           # list of source package NVRs
+bin_pkgs = []                           # list of binary package NVRs
+
+
+# For each file passed on the command line, read that file
+if args.containers != "":
+    containers = read_file_strings(args.containers)
+else:
+    containers = []
+
+if args.src_packages != "":
+    src_pkgs = read_file_strings(args.src_packages)
+else:
+    src_pkgs = []
+
+if args.bin_packages != "":
+    bin_pkgs = read_file_strings(args.bin_packages)
+else:
+    bin_pkgs = []
+
+
+# The output is a dictionary
+output = {
+           "release": {
+             "productname": args.product,
+             "version": args.release,
+             "notes": args.notes,
+             "containers": containers,
+             "src_packages": src_pkgs,
+             "bin_packages": bin_pkgs
+           }
+         }
+
+
+# Produce the json structure we created
+print(json.dumps(output))
+
+
+sys.exit(0)                             # Normal end of program

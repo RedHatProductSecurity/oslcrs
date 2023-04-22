@@ -1,0 +1,37 @@
+[
+  {
+    "source": {
+      "name": "vector-0.14-rh",
+      "custom": {
+        "fetch_url": "https://github.com/ViaQ/vector/archive/refs/heads/v0.14-rh.zip",
+        "upstream_url": "https://github.com/ViaQ/vector/tree/v0.14-rh",
+        "license": "mpl-2.0",
+        "binaries": [
+          {
+            "nvr": "vector-0.14-rh",
+            "license": "mpl-2.0"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "product": {
+      "name": "vector",
+      "displayname": "Vector",
+      "description": "A high-performance, highly reliable, observability data pipeline",
+      "family": "Ad-hoc Reviews"
+    }
+  },
+  {
+    "release": {
+      "productname": "vector",
+      "version": "master-as-of-2021-10-12",
+      "notes": "This is a top-of-tree check-out, as of October 12, 2021.<p>The team has asked for a quick look at the license content to identify any issues.",
+      "containers": [],
+      "src_packages": [
+        "vector-0.14-rh"
+      ]
+    }
+  }
+]

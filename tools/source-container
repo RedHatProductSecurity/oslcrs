@@ -1,0 +1,427 @@
+#! /bin/bash
+#
+# Script to arrange for a source container to be analyzed by oslcrs.
+#
+# The script is given a source container URL reference.  It downloads the
+# container, analyzes the contents, then emits a json structure that can
+# be uploaded to oslcrs to cause the source to be analyzed, as well as
+# capturing the container manifest.
+#
+# In order to do this, some of the source code is left in a subdirectory,
+# /tmp/container.  The generated json will include references to some source
+# code in this subdirectory.  Once oslcrs is finished doing the analysis,
+# the user is responsible for cleaning up, by removing this /tmp/container
+# subdirectory.
+#
+# Note that this script can also operate on the legacy container source
+# fulfillment mechanism, though the code is a lot more fragile.  The normal
+# command line option will be the URL of the binary container rather than a
+# source container, and include the -m option along with the http URL of
+# the container manifest file, as listed in the Customer Portal pages under
+# "get the source".
+#
+# Some operating notes:
+# - podman login probably needs to be done before this script will operate
+#
+# Bryan Sutula, 4/20/2023     Released under the GPL version 2
+
+progname="`basename $0`"
+usage="usage: $progname [-q] [-m legacy_manifest_url] source_container_URL"
+oslcrs_container="/tmp/container"
+if [ -v OSLCRS_TOOLS ]
+then
+    oslcrs_tools="$OSLCRS_TOOLS"
+else
+    oslcrs_tools="`pwd`/tools"		# Default if nothing is set
+fi
+manifest_index="$SOURCE_CONTAINER_LEGACY_URL"
+tmpdir="/tmp/source_container$$"
+quiet=0					# Default is to produce progress bars
+manifest=0				# Assuming no manifest option
+label="source container"		# Assuming import of source container
+
+
+# Ensure pass parameters are there and correct
+while [ $# -gt 1 ]
+do
+    case "$1" in
+    -q)	quiet=1
+    	shift;;
+    -m)	if [ $# -lt 2 ]
+    	then
+	    echo "$usage" >&2
+    	    exit 1
+	fi
+    	manifest=1
+    	manifest_url="$2"
+	label="container"
+	shift; shift;;
+    *)	echo "$usage" >&2
+    	exit 1;;
+    esac
+done
+if [ $# -ne 1 ]
+then
+    echo "$usage" >&2
+    exit 1
+fi
+
+
+# Before doing a lot of work, ensure we can access the Brew API, in the way
+# that we'll be doing it later on.
+python "$oslcrs_tools/test-brew-API" >&2
+if [ $? -ne 0 ]
+then
+    echo "failed to access Brew API (using test-brew-API)" >&2
+    exit 2
+fi
+
+
+# We will want to work primarily in a temporary subdirectory
+rm -rf "$tmpdir"
+mkdir "$tmpdir"
+cd "$tmpdir"
+
+
+# Obtain information on the container/source container
+skopeo --retry-times 5 inspect "docker://$1" >inspect.json
+if [ $? -ne 0 ]
+then
+    echo "error: unable to inspect $label" >&2
+    cd /tmp; rm -rf "$tmpdir"
+    exit 2
+fi
+
+
+# Obtain necessary information from the inspect output
+name=`jq --raw-output '.["Name"]' <inspect.json`
+digest=`jq --raw-output '.["Digest"]' <inspect.json`
+
+
+# Originally, we used the above Digest name as part the package name for any
+# tarballs found in the source container.  This makes for a consistent name,
+# but creates report output that's very hard to interpret.  This is a different
+# naming scheme based on the source container reference.  However, it's not
+# being used right now.
+# container=`echo "$1" | tr '/' '_'`
+
+
+# Prepare working directories
+mkdir contents metadata json
+
+
+# This section is split into two different paths.  For source containers,
+# we follow one process to obtain the container and unpack it.  For legacy
+# manifest content, we take a different route to gather the content.  Then,
+# we use the same code to create the necessary oslcrs json import structures.
+
+if [ $manifest -eq 0 ]			# This is the source container version
+then
+    # Obtain the source container
+    cd contents
+    if [ $quiet -eq 0 ]
+    then
+	skopeo --retry-times 5 copy "docker://$1" "dir:." >&2
+	ret=$?
+    else
+	skopeo --retry-times 5 copy "docker://$1" "dir:." >/dev/null
+	ret=$?
+    fi
+    if [ $ret -ne 0 ]
+    then
+	echo "error: unable to download $label" >&2
+	cd /tmp; rm -rf "$tmpdir"
+	exit 2
+    fi
+
+
+    # Inspect and unpack the source code.  These steps are documented in the
+    # Customer Portal source download page.
+    if [ $quiet -eq 0 ]
+    then
+	skopeo inspect "dir:." >&2
+	ret=$?
+    else
+	skopeo inspect "dir:." >/dev/null
+	ret=$?
+    fi
+    if [ $ret -ne 0 ]
+    then
+	echo "error: after downloading source, skopeo inspect failed" >&2
+	cd /tmp; rm -rf "$tmpdir"
+	exit 2
+    fi
+
+    mv version manifest.json ../metadata
+    # It seems like at least one of the downloaded files is not a tar
+    # archive.  It's a json file that seems to be a build log.  To avoid
+    # errors, it's good to identify and skip this file.
+    for f in $(ls)
+    do
+    	type=`file -b "$f"`
+	if [ "$type" != "JSON data" ]
+	then
+    	    if [ $quiet -eq 0 ]
+	    then
+		tar xvf "$f" >&2
+		ret=$?
+	    else
+		tar xf "$f" >&2
+		ret=$?
+	    fi
+	    if [ $ret -ne 0 ]
+	    then
+		echo "error: untar of file $f failed" >&2
+		cd /tmp; rm -rf "$tmpdir"
+		exit 2
+	    fi
+	fi
+    done
+
+
+    # Remove unneeded blob files, leaving behind the subdirectories
+    rm * 2>/dev/null
+
+
+    # Each of the subdirectories contains symbolic links to files in the blobs
+    # subdirectory.  The symbolic links make a mess of the work yet to come, so
+    # we'll break all these link now.
+    #
+    # While in there, tarballs in the extra_src_dir have names that will not be
+    # unique.  However, each tarball seems to have a single gzipped tar inside
+    # it with a name that looks to be unique.  Untar one layer and trust that
+    # the resulting names are unique.
+    for dir in *
+    do
+	if [ "$dir" != "blobs" ]	# Skipping the blobs subdir
+	then
+    	    # Remove symlink by moving the destination in place of the link
+	    cd "$dir"
+	    for f in $(ls); do mv "$(readlink -f $f)" "$f"; done
+	    if [ "$dir" = "extra_src_dir" ]
+	    then
+		for f in $(ls)
+		do
+		    tar -xf "$f"
+		    if [ $? -ne 0 ]
+		    then
+			echo "error: untar of tarball file $f failed" >&2
+			cd /tmp; rm -rf "$tmpdir"
+			exit 2
+		    fi
+		    rm "$f"		# Get rid of original tarball
+		done
+	    fi
+	    cd ..
+	fi
+    done
+    rm -d blobs/sha256 blobs		# These dirs should be empty now
+fi					# End of source container version
+
+
+if [ $manifest -eq 1 ]			# This is the manifest version
+then
+    cd contents
+    mkdir extra_src_dir rpm_dir		# Create directories to hold source
+    # First, get the txt file the caller provided as a pass parameter.  If
+    # this fails, it's better to know early and fail.
+    wget --no-check-certificate -O manifest.txt "$manifest_url"
+    if [ $? -ne 0 ]
+    then
+	echo "error: failed to obtain manifest text file $manifest_url" >&2
+	cd /tmp; rm -rf "$tmpdir"
+	exit 2
+    fi
+
+
+    # As preparation, we need to obtain a certain file from the RH public
+    # ftp site.  This file is a table-of-contents for any tarballs that
+    # are included in the manifest text file.
+    wget --no-check-certificate -O index "$manifest_index"
+    if [ $? -ne 0 ]
+    then
+	echo "error: failed to obtain manifest index file $manifest_index" >&2
+	cd /tmp; rm -rf "$tmpdir"
+	exit 2
+    fi
+
+
+    # We now march through the manifest file, handling each entry
+    cat manifest.txt | while read nvra archive
+    do
+    	type=`echo "$archive" | sed 's/^.*\.\([a-z]*\.[a-z]*\)/\1/'`
+	case "$type" in
+	"src.rpm")
+	    touch "rpm_dir/$archive"	# Creating the file is enough to
+	    				# manifest it later.  We don't care
+					# about the file contents.
+	    ;;
+	"tar.gz")
+	    # These cases are harder.  We need to obtain the actual source
+	    # archive so it can be stored in /tmp/container later on.
+	    line=`fgrep "$archive" index`
+	    if [ "X$line" = X ]
+	    then
+	    	echo "error: unable to locate manifest archive $archive" >&2
+		exit 2
+	    fi
+	    if [ `echo "$line" | wc -l` -ne 1 ]
+	    then
+	    	echo "error: unable to locate single entry for $archive" >&2
+	    	echo "found: $line" >&2
+		exit 2
+	    fi
+	    url=`echo "$line" | sed 's/^.*href="\(.*\)">.*$/\1/'`
+	    # Use ftp, not http
+	    url=`echo "$url" | sed 's/http:/ftp:/'`
+	    wget --no-check-certificate -O "extra_src_dir/$archive" "$url"
+	    if [ $? -ne 0 ]
+	    then
+	    	echo "error: unable to fetch $url" >&2
+		exit 2
+	    fi
+	    ;;
+	esac
+    done
+
+    # Remove any empty subdirectories, so that we don't try to manifest them.
+    rmdir --ignore-fail-on-non-empty extra_src_dir rpm_dir
+
+    # Remove temporary files so they don't cause trouble later
+    rm manifest.txt index
+fi
+
+
+# Create the source import json structures
+touch ../container_nvrs			# Collect package NVRs here
+for dir in *
+do
+    case "$dir" in
+
+    extra_src_dir)
+    		# The presence of these tarballs requires us to save the
+		# archives in a tmp subdirectory for oslcrs analysis.
+		cd "$dir"
+		rm -rf "$oslcrs_container/$digest" # in case old stuff
+		mkdir -p "$oslcrs_container/$digest"
+		ls >>../../container_nvrs # keep package list
+		# Create source import json structure.  I apologize for this
+		# mess!
+		json="../../json/extra.json"
+		echo "[" >"$json"
+		first=1
+		for f in $(ls)
+		do
+		    nvr=`basename "$f" .tar`
+		    if [ $first -ne 1 ]
+		    then
+		    	echo "  ," >>"$json"
+		    fi
+		    echo "  {" >>"$json"
+		    echo "    \"source\": {" >>"$json"
+		    echo "      \"name\": \"$nvr\"," >>"$json"
+		    echo "      \"custom\": {" >>"$json"
+		    echo "        \"fetch_url\": \"file://$oslcrs_container/$digest/$f\"," >>"$json"
+		    echo "        \"upstream_url\": \"\"," >>"$json"
+		    echo "        \"license\": \"\"," >>"$json"
+		    echo "        \"binaries\": [" >>"$json"
+		    echo "        ]" >>"$json"
+		    echo "      }" >>"$json"
+		    echo "    }" >>"$json"
+		    echo "  }" >>"$json"
+		    first=0
+		done
+		echo "]" >>"$json"
+		# Now move the tarballs so oslcrs can access them
+		for f in $(ls)
+		do
+		    mv "$f" "$oslcrs_container/$digest/"
+		done
+		cd ..
+		;;
+
+    rpm_dir)	# For these, the brewRPM script can create the source import
+    		# json structures
+		cd "$dir"
+		ls >>../../container_nvrs # keep package list
+		if [ $quiet -eq 0 ]
+		then
+		    ls |
+			python "$oslcrs_tools/brewRPM" -a >../../json/rpm.json
+		    ret=$?
+		else
+		    ls |
+			python "$oslcrs_tools/brewRPM" -a \
+			       >../../json/rpm.json 2>/dev/null
+		    ret=$?
+		fi
+		if [ $ret -ne 0 ]
+		then
+		    echo "error: brewRPM of source container layers failed" >&2
+		    cd /tmp; rm -rf "$tmpdir"
+		    exit 2
+		fi
+		jq . ../../json/rpm.json >../../pretty.json
+		mv ../../pretty.json ../../json/rpm.json
+		cd ..
+		;;
+
+    *)		echo "error: unpacked source contains directory $dir" >&2
+    		echo "this script doesn't know how to handle this content" >&2
+		exit 3;;
+    esac
+done
+
+
+# Create a container manifest structure
+cd ../json
+echo "[" >container
+echo "  {" >>container
+echo "    \"container\": {" >>container
+echo "      \"reference\": \"$1\"," >>container
+echo "      \"src_packages\": [" >>container
+first=1
+jq --raw-output '.[]|.source|.name' *.json |
+    while read nvr
+    do
+    	if [ $first -ne 1 ]
+	then
+	    echo "        ," >>container
+	fi
+	echo "        \"$nvr\"" >>container
+	first=0
+    done
+echo "      ]" >>container
+echo "    }" >>container
+echo "  }" >>container
+echo "]" >>container
+mv container container.json
+
+
+# Combine all the json structures
+# There *has* to be a clever way of doing this with jq.  I couldn't figure it
+# out.  :-(
+first=1
+touch ../import.json
+for f in $(ls)
+do
+    if [ $first -eq 1 ]
+    then
+    	head -n -1 "$f" >>../import.json
+    else
+    	echo "  ," >>../import.json
+    	tail -n +2 "$f" | head -n -1 >>../import.json
+    fi
+    first=0
+done
+echo "]" >>../import.json
+cd ..
+# Clean up the formatting :-)
+jq . import.json >x
+mv x import.json
+
+
+# Finish up
+cat import.json				# Provide generated json file
+cd /tmp; rm -rf "$tmpdir"
+exit 0

@@ -1,0 +1,8 @@
+{
+  "product": {
+    "name": "satellite",
+    "displayname": "Red Hat Satellite",
+    "description": "Red Hat Satellite is an infrastructure management product specifically designed to keep Red Hat Enterprise Linux environments and other Red Hat infrastructure running efficiently, properly secured, and compliant with various standards.",
+    "family": "MANAGEMENT"
+  }
+}

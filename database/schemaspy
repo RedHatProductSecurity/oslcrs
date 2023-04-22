@@ -1,0 +1,20 @@
+#! /bin/bash
+# Script to run SchemaSpy
+
+
+# Configuration may need to change with newer versions of these dependencies
+spy="/opt/oslcrs-app/oslcrs/database/schemaspy-6.1.0.jar"
+jdbc="/usr/share/java/postgresql-42.2.15.jar"
+
+
+# Help for using the script
+if [ $# -eq 0 -o "$1" = "-h" -o "$1" = "--help" ]
+then
+    echo "Normal usage: schemaspy -s public -db DB -u USER -p PASSWD -host DB_HOST -o OUTPUT_DIRECTORY" >&2
+    exit 1
+fi
+
+
+# The real work
+exec java -jar "$spy" -t pgsql -dp "$jdbc" "$@"
+# exec java -jar "$spy" -t pgsql "$@"

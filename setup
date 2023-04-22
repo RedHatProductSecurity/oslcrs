@@ -1,0 +1,169 @@
+#! /bin/bash
+# Script to set up the environment needed by the oslcrs Python application.
+# This script should be run from within the "oslcrs" subdirectory.
+#
+# Bryan Sutula, Red Hat,  Revised 3/24/23
+# Released under GPL version 2
+
+
+# Ensure that we're in a subdirectory with the necessary python scripts.
+if [ ! -r "oslcrs.py" -o ! -r "analyze.py" -o ! -r set_env.template ]
+then
+  echo "Failed to find required files in the current subdirectory." >&2
+  echo "Are you executing the setup script from a different subdirectory?" >&2
+  echo "This is a fatal error." >&2
+  exit 1
+fi
+
+
+# The underlying operating system needs some commands.  Ensure we have them.
+echo
+echo "CHECKING FOR REQUIRED OS DEPENDENCIES..."
+echo
+for cmd in python3 curl rpm jq patch krb5-config
+do
+  executable=`which "$cmd"`
+  if [ "X$executable" = "X" ]
+  then
+    echo "Failed to locate command $cmd (required dependency)" >&2
+    echo "Please install this command and re-run the setup script" >&2
+    exit 1
+  fi
+done
+
+
+# Set up the oslcrs environment.  This creates the venv and installs the
+# necessary dependencies.
+# Note that I'm not deleting and recreating this.  Should I be?
+# FIXME: Need some error checking here, kiddo!
+#
+echo
+echo "SETTING UP THE PYTHON VIRTUAL ENVIRONMENT..."
+echo
+python3 -m venv ../oslcrs-env
+if [ $? -ne 0 ]
+then
+  echo "Failed to set up python virtual environment" >&2
+  exit 1
+fi
+source ../oslcrs-env/bin/activate
+if [ $? -ne 0 ]
+then
+  echo "Failed to activate the python virtual environment" >&2
+  exit 1
+fi
+pip3 install wheel progress swh-model koji psycopg2-binary openpyxl flask
+if [ $? -ne 0 ]
+then
+  echo "Failed to install required Python packages" >&2
+  exit 1
+fi
+pip3 install python-rpm-spec		# FIXME: This goes away in favor of rpm
+if [ $? -ne 0 ]
+then
+  echo "Failed to install required Python package python-rpm-spec" >&2
+  exit 1
+fi
+pip3 install packageurl-python		# This is somewhat experimental, as we
+					# try to use Corgi for manifest data
+if [ $? -ne 0 ]
+then
+  echo "Failed to install required Python package packageurl-python" >&2
+  exit 1
+fi
+
+
+# Grab the latest version of scancode toolkit.
+echo
+echo "INSTALLING SCANCODE TOOLKIT (LATEST)..."
+echo
+rm -rf "../scancode.xz" "../scancode"	# Ensure fresh start
+repo="nexB/scancode-toolkit"
+py_version=`python --version | sed 's/^Python \(.\).\(.\).*$/\1\2/'`
+py_dot_ver=`python --version | sed 's/^Python \(.\).\(.\).*$/\1.\2/'`
+latest=`curl --silent "https://api.github.com/repos/$repo/releases/latest" |
+	jq -r .tag_name`
+version=`echo "$latest" | sed 's/v//'`
+echo "Latest scancode version is $version"
+version="30.1.0"			# FIXME: Using this version for now
+echo "Using scancode version $version"
+base="https://github.com/nexB/scancode-toolkit/releases/download"
+suffix="_py$py_version-linux.tar.xz"
+download="$base/v$version/scancode-toolkit-$version$suffix"
+echo "Diving for $download"
+wget "$download" -O "../scancode.xz"
+if [ $? -ne 0 ]
+then
+  echo "Failed to grab latest scancode from github.  URL was:" >&2
+  echo "$download" >&2
+  exit 1
+fi
+mkdir ../scancode
+tar --directory="../scancode" --strip-components=1 -xf "../scancode.xz"
+rm "../scancode.xz"
+
+
+#
+# JUST SO EVERYONE KNOWS...
+# Scancode "configure for first use" is what grabs a copy of some of the
+# dependencies, including extractcode.  In order to patch extractcode (and
+# one of the current patches does this), we need to configure scancode for
+# first use, then apply the patches.  I know this is backwards, but...
+#
+
+
+# Configure for first use
+echo
+echo "CONFIGURING SCANCODE TOOLKIT FOR FIRST USE..."
+echo
+cd ../scancode
+./scancode --version
+cd -
+
+
+# Patch this version if necessary
+echo
+echo "PATCHING SCANCODE TOOLKIT (IF NECESSARY)..."
+echo
+cd ..
+ls oslcrs/patches | while read patchfile
+do
+  cat "oslcrs/patches/$patchfile" | sed "s/3\.7/$py_dot_ver/" | patch -p0
+done
+cd -
+
+
+# Copy the template script to the parent directory, so that the user can
+# modify it to suit their local installation.
+echo
+echo "ENSURING ENVIRONMENT SETUP SCRIPT EXISTS..."
+echo
+cp --no-clobber "set_env.template" "../set_env"
+if [ $? -ne 0 ]
+then
+  echo "Failed to copy template environment script." >&2
+  exit 1
+fi
+# Was there already a version of "../set_env", that had been modified by
+# the user?  If so, skip the instructions.
+cmp "set_env.template" "../set_env" >/dev/null 2>&1
+if [ $? -ne 0 ]
+then
+  exit					# Early exit
+fi
+
+
+# Provide final instructions for the user
+cat <<!
+
+The environment allowing the oslcrs application to execute has been set
+up successfully.  However, the application will still need access to the
+database that will contain package analysis records.  A template script
+has been created as ../set_env, but you need to edit the values in that
+script.  Once this is done, remove the final "false" line in that file.
+
+!
+
+
+# Normal end of setup
+exit 0

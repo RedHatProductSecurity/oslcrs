@@ -1,0 +1,6 @@
+{
+  "scnt": {
+    "name": "rhel7:7.9-476-source",
+    "fetch_url": "registry.redhat.io/rhel7:7.9-476-source"
+  }
+}

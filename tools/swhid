@@ -1,0 +1,43 @@
+# Script to compute swhid of a single file
+#
+# Bryan Sutula, Red Hat, revised 5/3/22
+# Released under GPL version 2
+
+#import os                               # Environment variable support
+#import fcntl                            # Lower-level file control
+import argparse                         # Command line parsing
+
+
+# Compute SWH UUID of a file
+# This code is stolen from the SWH utility that computes UUIDs.  For the
+# record, this code is under GPL-3.0
+def swhid_of_file(path):
+    from swh.model.from_disk import Content
+
+    object = Content.from_file(path=path)
+    return str(object.swhid())
+
+
+# Command line arguments (basically, files)
+parser = argparse.ArgumentParser()
+parser.add_argument("files", type=str, nargs='+',
+                    help="file paths for computed swhid")
+args = parser.parse_args()
+
+
+# Process the files
+for thisfile in args.files:
+    try:
+        file_uuid = swhid_of_file(thisfile) # Compute file SWH UUID
+    except Exception as e:
+        print(f"Failed to compute SWHID from file {thisfile}")
+        print(e)
+        exit(1)
+    if len(args.files) > 1:
+        print(f"{thisfile}: {file_uuid}")
+    else:
+        print(file_uuid)
+
+
+# Normal exit
+exit(0)

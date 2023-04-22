@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="OSLC" schema="public" type="PostgreSQL - 11.16 (Debian 11.16-0+deb10u1)">
+   <sequences>
+      <sequence increment="1" name="containers_id_seq" startValue="1"/>
+      <sequence increment="1" name="exclude_path_comment_seq" startValue="1"/>
+      <sequence increment="1" name="exclude_path_id_seq" startValue="1"/>
+      <sequence increment="1" name="files_id_seq1" startValue="1"/>
+      <sequence increment="1" name="overrides_id_seq" startValue="1"/>
+      <sequence increment="1" name="packages_id_seq" startValue="1"/>
+      <sequence increment="1" name="products_id_seq" startValue="1"/>
+      <sequence increment="1" name="releases_id_seq" startValue="1"/>
+      <sequence increment="1" name="sources_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="container_packages" numRows="12625" remarks="packages in each container" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="container_id" nullable="false" remarks="reference to a container" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="container_packages_container_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="containers"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="package_nvr" nullable="false" remarks="reference to a package (nvr)" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="source" nullable="false" remarks="non-zero if this package corresponds to the entire source, rather than an actual binary package" size="5" type="int2" typeCode="5"/>
+         <index name="container_packages_container_id_package_id_key" unique="true">
+            <column ascending="true" name="container_id"/>
+            <column ascending="true" name="package_nvr"/>
+         </index>
+      </table>
+      <table name="containers" numRows="78" remarks="containers that we know about; be cautious about ever allowing these to be deleted since this action silently removes containers from a release" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('containers_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="unique container ID" size="10" type="serial" typeCode="4">
+            <child column="container_id" foreignKey="container_packages_container_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="container_packages"/>
+            <child column="container_id" foreignKey="release_containers_container_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="release_containers"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="reference" nullable="false" remarks="reference to a container" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="containers_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="containers_reference_key" unique="true">
+            <column ascending="true" name="reference"/>
+         </index>
+      </table>
+      <table name="copyrights" numRows="1935445" remarks="per-file copyright detections" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="file_id" nullable="true" remarks="reference to a file" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="copyrights_file_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="files"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="copyright" nullable="true" remarks="copyright text" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="detector" nullable="true" remarks="copyright detector version; must allow for compares" size="32" type="bpchar" typeCode="1"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="3" name="false_positive" nullable="false" remarks="True if this detection has been determined to be false positive" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="start_line" nullable="true" remarks="beginning of copyright match" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="end_line" nullable="true" remarks="end of copyright match" size="10" type="int4" typeCode="4"/>
+         <index name="copyrights_file_id_copyright_start_line_end_line_key" unique="true">
+            <column ascending="true" name="file_id"/>
+            <column ascending="true" name="copyright"/>
+            <column ascending="true" name="start_line"/>
+            <column ascending="true" name="end_line"/>
+         </index>
+      </table>
+      <table name="exclude_path" numRows="1" remarks="list of path name fragments that result in license false positives" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('exclude_path_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="not used, but gives elements of this table a handle for reference" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fragment" nullable="true" remarks="path name fragment" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="comment" nullable="true" remarks="reason this poses a problem" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="exclude_path_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="files" numRows="4719730" remarks="all files we've seen; basically links a unique file ID with a SWH file UUID" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('files_id_seq1'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="file ID within oslcrs" size="19" type="bigserial" typeCode="-5">
+            <child column="file_id" foreignKey="copyrights_file_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="copyrights"/>
+            <child column="file_id" foreignKey="license_detects_file_id_fkey1" implied="false" onDeleteCascade="true" schema="public" table="license_detects"/>
+            <child column="file_id" foreignKey="paths_file_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="paths"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="swh" nullable="true" remarks="swh UUID, type cnt" size="50" type="bpchar" typeCode="1"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="files_pkey1" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="file_swh_index" unique="false">
+            <column ascending="true" name="swh"/>
+         </index>
+      </table>
+      <table name="license_detects" numRows="2636524" remarks="license detection artifacts" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="file_id" nullable="false" remarks="reference to a file" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="license_detects_file_id_fkey1" implied="false" onDeleteCascade="true" schema="public" table="files"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="lic_name" nullable="false" remarks="PELC (DejaCode) license key name (future reference to licenses table)" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="2" name="score" nullable="true" remarks="scancode license match score (0 - 100%)" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="rule" nullable="true" remarks="scancode matched rule name" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="start_line" nullable="true" remarks="starting line number of matched license text" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="end_line" nullable="true" remarks="ending line number of matched license text" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="false_positive" nullable="false" remarks="True if this detection has been determined to be false positive" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="detector" nullable="true" remarks="license detector version; must allow for compares" size="32" type="varchar" typeCode="12"/>
+         <index name="license_detects_file_id_lic_name_score_rule_start_line_end__key" unique="true">
+            <column ascending="true" name="file_id"/>
+            <column ascending="true" name="lic_name"/>
+            <column ascending="true" name="score"/>
+            <column ascending="true" name="rule"/>
+            <column ascending="true" name="start_line"/>
+            <column ascending="true" name="end_line"/>
+         </index>
+      </table>
+      <table name="licenses" numRows="1849" remarks="copy of PELC license table, used for reference information and license approval status" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="key" nullable="false" remarks="PELC/DejaCode/scancode license key" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="approved" nullable="false" remarks="PELC approval state" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="legacy" nullable="true" remarks="True if this is a PELC legacy license" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="bad" nullable="true" remarks="True if PELC has this license marked bad" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="local" nullable="true" remarks="True if this license is locally uploaded to PELC" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="url" nullable="true" remarks="Upstream license reference URL" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="pelc_link" nullable="true" remarks="URL of license within PELC system" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="long_name" nullable="true" remarks="Long license name" size="256" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="short_name" nullable="true" remarks="Short license name" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="spdx" nullable="true" remarks="SPDX license identifier" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="text" nullable="true" remarks="Full license text, if available" size="2147483647" type="text" typeCode="12"/>
+         <index name="licenses_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="overrides" numRows="1" remarks="contains manual report override information on a per-package basis" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('overrides_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="override ID" size="19" type="bigserial" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="package_id" nullable="false" remarks="link to packages table" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="overrides_package_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="packages"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="url" nullable="true" remarks="new upstream URL value" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sum_license" nullable="true" remarks="new summary license text expression" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="clock_timestamp()" digits="6" id="4" name="timestamp" nullable="false" remarks="the time/date this correction was entered or last changed" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="responsible" nullable="false" remarks="Name or other ID of the person who added or last changed this override" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="overrides_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="overrides_package_id_key" unique="true">
+            <column ascending="true" name="package_id"/>
+         </index>
+         <index name="packages_package_id" unique="true">
+            <column ascending="true" name="package_id"/>
+         </index>
+      </table>
+      <table name="package_copyrights" numRows="0" remarks="List of distinct copyright statements, per binary package" schema="public" type="VIEW" viewSql=" SELECT packages.id AS package_id,&#10;    string_agg(DISTINCT copyrights.copyright, '&#13;&#10;'::text ORDER BY copyrights.copyright) AS copyright&#10;   FROM (((packages&#10;     JOIN sources ON ((packages.source_id = sources.id)))&#10;     JOIN paths ON ((paths.source_id = sources.id)))&#10;     JOIN copyrights ON ((copyrights.file_id = paths.file_id)))&#10;  GROUP BY packages.id;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="package_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="copyright" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+      </table>
+      <table name="packages" numRows="25968" remarks="source and binary packages" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('packages_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="package ID" size="19" type="bigserial" typeCode="-5">
+            <child column="package_id" foreignKey="overrides_package_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="overrides"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nvr" nullable="false" remarks="package nvr" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="source_id" nullable="false" remarks="source package pointer" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="packages_source_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="sources"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sum_license" nullable="true" remarks="package declared summary license expression" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="source" nullable="true" remarks="non-zero if this package corresponds to the entire source, rather than an actual binary package" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="packages_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="packages_nvr_source_key" unique="true">
+            <column ascending="true" name="nvr"/>
+            <column ascending="true" name="source"/>
+         </index>
+      </table>
+      <table name="packages_per_release" numRows="0" remarks="generates a list of packages (nvr) for any release" schema="public" type="VIEW" viewSql=" SELECT releases.id AS release_id,&#10;    release_packages.package_nvr,&#10;    release_packages.source&#10;   FROM (releases&#10;     JOIN release_packages ON ((release_packages.release_id = releases.id)))&#10;UNION&#10; SELECT releases.id AS release_id,&#10;    container_packages.package_nvr,&#10;    container_packages.source&#10;   FROM (((releases&#10;     JOIN release_containers ON ((release_containers.release_id = releases.id)))&#10;     JOIN containers ON ((containers.id = release_containers.container_id)))&#10;     JOIN container_packages ON ((container_packages.container_id = containers.id)));">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="release_id" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="package_nvr" nullable="true" remarks="" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="source" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+      </table>
+      <table name="paths" numRows="17192096" remarks="organizes files within packages" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="source_id" nullable="false" remarks="pointer to source package" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="paths_source_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="sources"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="file_id" nullable="false" remarks="pointer to file" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="paths_file_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="files"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="path" nullable="false" remarks="file path within source package" size="2147483647" type="text" typeCode="12"/>
+         <index name="paths_source_id_file_id_path_key" unique="true">
+            <column ascending="true" name="source_id"/>
+            <column ascending="true" name="file_id"/>
+            <column ascending="true" name="path"/>
+         </index>
+      </table>
+      <table name="products" numRows="8" remarks="Red Hat products" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('products_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="unique product ID" size="10" type="serial" typeCode="4">
+            <child column="product_id" foreignKey="releases_product_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="releases"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="product name (short, unique name)" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="short product description" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="displayname" nullable="true" remarks="when non-null, this name is displayed in place of the short name" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="family" nullable="true" remarks="product family; provides one level of product organization" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="products_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="products_name_key" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="release_containers" numRows="76" remarks="containers as part of a release" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="release_id" nullable="true" remarks="reference to a release" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="release_containers_release_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="releases"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="container_id" nullable="true" remarks="reference to a container" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="release_containers_container_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="containers"/>
+         </column>
+         <index name="ensure no duplicate container links" unique="true">
+            <column ascending="true" name="release_id"/>
+            <column ascending="true" name="container_id"/>
+         </index>
+      </table>
+      <table name="release_packages" numRows="18823" remarks="packages within each release" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="release_id" nullable="false" remarks="reference to a release" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="release_packages_release_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="releases"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="package_nvr" nullable="false" remarks="reference to a package (nvr)" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="source" nullable="false" remarks="non-zero if this package corresponds to the entire source, rather than an actual binary package" size="5" type="int2" typeCode="5"/>
+         <index name="ensure no duplicate package links" unique="true">
+            <column ascending="true" name="release_id"/>
+            <column ascending="true" name="package_nvr"/>
+         </index>
+      </table>
+      <table name="releases" numRows="35" remarks="releases of each product" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('releases_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="unique product release ID" size="10" type="serial" typeCode="4">
+            <child column="release_id" foreignKey="release_containers_release_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="release_containers"/>
+            <child column="release_id" foreignKey="release_packages_release_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="release_packages"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_id" nullable="false" remarks="reference to product" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="releases_product_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="products"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="version" nullable="false" remarks="release version information that will be displayed" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="notes" nullable="true" remarks="comments, such as the source of this manifest data" size="2147483647" type="text" typeCode="12"/>
+         <index name="releases_id_key" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="releases_product_id_version_key" unique="true">
+            <column ascending="true" name="product_id"/>
+            <column ascending="true" name="version"/>
+         </index>
+      </table>
+      <table name="sources" numRows="4954" remarks="source packages that have been submitted for analysis" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sources_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="unique source ID" size="19" type="bigserial" typeCode="-5">
+            <child column="source_id" foreignKey="packages_source_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="packages"/>
+            <child column="source_id" foreignKey="paths_source_id_fkey" implied="false" onDeleteCascade="true" schema="public" table="paths"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="checksum" nullable="true" remarks="checksum (or other) for this package" size="50" type="bpchar" typeCode="1"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="true" remarks="name of this package" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="url" nullable="true" remarks="upstream project URL" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fetch_info" nullable="true" remarks="fetch parameters (json dict structure)" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="state" nullable="false" remarks="used to track package analysis status" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="swh" nullable="true" remarks="SWH package UUID" size="50" type="bpchar" typeCode="1"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="fossology" nullable="true" remarks="Fossology package analysis URL" size="512" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="''::text" digits="0" id="8" name="error" nullable="false" remarks="error message from analysis" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="type" nullable="false" remarks="type of archive" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="retries" nullable="true" remarks="number of analysis failures" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="''::text" digits="0" id="11" name="status" nullable="false" remarks="As analysis proceeds, gets filled in with the status of the analysis" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="sources_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="sources_checksum_name_key" unique="true">
+            <column ascending="true" name="checksum"/>
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="sources_swh_key" unique="true">
+            <column ascending="true" name="swh"/>
+         </index>
+      </table>
+   </tables>
+</database>

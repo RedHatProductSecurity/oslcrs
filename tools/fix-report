@@ -1,0 +1,255 @@
+# Patch report files (Excel and json) based on a set of changes
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  6/13/22
+# Released under the GPL license, version 2
+
+
+import sys
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import argparse
+import json
+import openpyxl
+
+
+# Local functions
+
+# This reads an input file, line by line, and tries to clean up any extra
+# messes that are readily identifiable.  See the nvr() function above for
+# most of the clean-up details.  An array of strings is returned.
+def read_file_strings(filename):
+    try:
+        with open(filename, 'r') as f:
+            contents = [ nvr(l.strip()) for l in f.readlines() ]
+        f.close()
+    except Exception as e:
+        print(f"Can't read input file {filename}")
+        print(e)
+        sys.exit(1)
+    return contents
+
+
+# Parse the command line and handle any command line errors first
+parser = argparse.ArgumentParser()
+
+# We need a patchfile in order to do any work.  The patchfile is in json
+# format.
+parser.add_argument("-p", "--patchfile", type=str, required=True,
+                    help="file name containing the report changes, json format")
+
+# All the following (including file name parameters) are optional parameters.
+parser.add_argument("-j1", "--json-input", type=str, default="",
+                    help="input filename of the json-formatted report")
+parser.add_argument("-j2", "--json-output", type=str, default="",
+                    help="output filename for the new json-formatted report")
+parser.add_argument("-x1", "--excel-input", type=str, default="",
+                    help="input filename of the Excel-formatted report")
+parser.add_argument("-x2", "--excel-output", type=str, default="",
+                    help="output filename for the new Excel-formatted report")
+# This one can be applied to all situations
+parser.add_argument("-ec", "--fix-empty-copyright", type=str, default="",
+                    help="replace empty copyright with this string")
+parser.add_argument("-ecc", "---empty-copyright-column", type=str, default="",
+                    help="if replacing empty copyrights, " +
+                          "the spreadsheet column")
+# This may be helpful
+parser.add_argument("-v", "--verbose",
+                    action="store_true",
+                    help="print extra debugging information")
+args = parser.parse_args()              # Parse the arguments
+do_excel = False
+do_json = False
+if args.excel_input != "" or args.excel_output != "":
+    do_excel = True
+    if args.excel_input == "":
+        print("error: missing Excel-format report input filename",
+              file=sys.stderr)
+        sys.exit(1)
+    if args.excel_output == "":
+        print("error: missing Excel-format report output filename",
+              file=sys.stderr)
+        sys.exit(1)
+if args.json_input != "" or args.json_output != "":
+    do_json = True
+    if args.json_input == "":
+        print("error: missing json-format report input filename",
+              file=sys.stderr)
+        sys.exit(1)
+    if args.json_output == "":
+        print("error: missing json-format report output filename",
+              file=sys.stderr)
+        sys.exit(1)
+if args.excel_input != "" and \
+   args.fix_empty_copyright != "" and \
+   args.empty_copyright_column == "":
+    print("error: missing necessary empty-copyright-column parameter",
+          file=sys.stderr)
+    sys.exit(1)
+
+
+# Script global variables
+patches = []                            # list of container references
+
+
+# Read paches into our local memory
+try:
+    with open(args.patchfile, 'r') as f:
+        patches = json.load(f)
+    f.close()
+except Exception as e:
+    print(f"error: can't read json patch data from file {args.patchfile}",
+          file=sys.stderr)
+    print(e, file=sys.stderr)
+    sys.exit(1)
+
+
+# Shall we modify the json-formatted report?
+if do_json:
+    # Read report structure into memory
+    try:
+        with open(args.json_input, 'r') as f:
+            report = json.load(f)
+        f.close()
+    except Exception as e:
+        print(f"error: can't read json report from file {args.json_input}",
+              file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+
+    # Apply each patch
+    for package in patches.keys():
+        if args.verbose:
+            print(f"Applying json patch to {package}")
+        # Obtain new value for this package
+        try:
+            field = patches[package]['field']
+            value = patches[package]['value']
+        except Exception as e:
+            print(f"error: missing field {e} in patches for package {package}",
+                  file=sys.stderr)
+            sys.exit(1)
+        try:
+            report[package][field] = value
+        except Exception as e:
+            print(f"error: failed to change report field {field}",
+                  f"for package {package} in json-formatted report",
+                  file=sys.stderr)
+            sys.exit(1)
+        exit
+
+    # Apply empty copyright patch, if requested
+    if args.fix_empty_copyright != "":
+        for record in report:
+            if report[record]['PackageCopyrights'] == "" or \
+               report[record]['PackageCopyrights'] == None:
+                try:
+                    report[record]['PackageCopyrights'] = \
+                        args.fix_empty_copyright
+                except Exception as e:
+                    print("error: can't update json field PackageCopyrights",
+                          f"for package {record}, error `{e}",
+                          file=sys.stderr)
+                    sys.exit(1)
+
+
+    # Write out the new (patched) json-formatted report
+    try:
+        with open(args.json_output, 'w') as f:
+            json.dump(report, f)
+        f.close()
+    except Exception as e:
+        print(f"Can't write json patched report file {args.json_output}",
+              file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+
+# Shall we modify the Excel spreadsheet?
+if do_excel:
+    # Read the report spreadsheet into memory
+    try:
+        ss = openpyxl.load_workbook(args.excel_input)
+        sheet = ss.active
+    except Exception as e:
+        print(f"error: can't read Excel report from file {args.excel_input}",
+              file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+
+    # Apply each patch
+    for package in patches.keys():
+        if args.verbose:
+            print(f"Applying Excel patch to {package}")
+        # Obtain new value for this package
+        try:
+            column = patches[package]['column']
+            value = patches[package]['value']
+            # For Excel-formatted sheets, all "\r\n" sequences become " "
+            value = value.replace("\r\n", " ")
+        except Exception as e:
+            print(f"error: missing field {e} in patches for package {package}",
+                  file=sys.stderr)
+            sys.exit(1)
+        # Locate row that needs to be changed
+        # Note that an empty column 1 cell terminates the search
+        found = 0
+        row = 1
+        while sheet[f"A{row}"].value != None:
+            # print(f"Row {row}", sheet[f"A{row}"].value)
+            if sheet[f"A{row}"].value == package:
+                found = row
+                break
+            row += 1
+        if found == 0:
+            print(f"error: failed to locate row for package {package}",
+                  "in report spreadsheet",
+                  file=sys.stderr)
+            sys.exit(1)
+        else:
+            try:
+                sheet[f"{column}{found}"].value = value
+            except Exception as e:
+                print(f"error: failed to change report field {field}",
+                      f"for package {package} in Excel-formatted report",
+                      file=sys.stderr)
+                sys.exit(1)
+
+
+    # Apply empty copyright patch, if requested
+    if args.fix_empty_copyright != "":
+        row = 2
+        empty = b'\xc2\xa0'.decode('utf-8') # FIXME: No clue where this value
+                                            # comes from!  Any ideas?
+        while sheet[f"A{row}"].value != None:
+            if sheet[f"{args.empty_copyright_column}{row}"].value == "" or \
+               sheet[f"{args.empty_copyright_column}{row}"].value == None or \
+               sheet[f"{args.empty_copyright_column}{row}"].value == empty:
+                try:
+                    sheet[f"{args.empty_copyright_column}{row}"].value = \
+                        args.fix_empty_copyright
+                except Exception as e:
+                    print("error: can't update Excel empty copyright for",
+                        f"cell {row}{args.empty_copyright_column}, error `{e}",
+                        file=sys.stderr)
+                    sys.exit(1)
+            row += 1
+
+
+    # Write out the new (patched) Excel file
+    try:
+        ss.save(args.excel_output)
+    except Exception as e:
+        print(f"Can't write Excel patched report file {args.excel_output}",
+              file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+
+print("All patches complete")
+sys.exit(0)                             # Normal end of program

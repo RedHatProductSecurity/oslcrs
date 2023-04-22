@@ -1,0 +1,71 @@
+# Script to verify that we can get to Brew via it's API.
+# The only point of running this is if we get errors from other Brew-based
+# scripts.  Hopefully, the diagnostics are helpful.
+#
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  4/19/23
+# Released under the GPL license, version 2
+
+
+import sys
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import os
+import argparse
+# import re
+import koji                             # Primary Brew API
+
+
+# Constants that don't change
+
+
+# Local functions
+
+
+# We might want to do some further testing in the future, so a few of these
+# argument parsing commands are left in as templates.
+"""
+# Parse the command line and handle any command line errors first
+parser = argparse.ArgumentParser()
+# There are no required parameters.  All are optional ones.
+# These control what type of output is provided
+parser.add_argument("-a", "--source-analysis", action="store_true",
+                    help="produce an array of source analysis oslcrs requests")
+parser.add_argument("-m", "--binary-mapping", action="store_true",
+                    help="produce an array of binary mapping oslcrs structures")
+# This enables output of warning messages
+parser.add_argument("-w", "--warnings", action="store_true",
+                    help="list warnings in addition to errors")
+# This reads intput from a json-formatted file, and assumes an NVR list instead
+# of a list of RPMs.
+parser.add_argument("-j", "--json-nvr", type=str, default="",
+                    help="read list of NVRs from a json file instead of stdin")
+args = parser.parse_args()              # Parse the arguments
+"""
+
+
+# Always need a koji session to access Brew
+try:
+    brew_url = os.environ['BREWHUB_URL']
+except Exception as e:
+    print("error: need access to brewhub",
+          "(missing BREWHUB_URL environment variable)", e)
+    exit(1)
+
+session = koji.ClientSession(brew_url)
+# Locate a build based on an arbitrary build ID
+buildinfo = session.getBuild(10)        # For now, allow failures to spew out
+if buildinfo != None:
+    print("Seems that we're able to access the Brew API")
+    if buildinfo['build_id'] != 10:
+        print("However, something's wrong because we didn't get back the",
+              "build_id we searched for.")
+else:
+    print("We accessed the Brew API, but were unable to locate build ID 10")
+
+
+sys.exit(0)                             # Normal end of program

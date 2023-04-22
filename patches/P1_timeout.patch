@@ -1,0 +1,12 @@
+diff -urN scancode.orig/src/scancode/pool.py scancode/src/scancode/pool.py
+--- scancode.orig/src/scancode/pool.py	2021-11-04 20:16:17.588348047 -0500
++++ scancode/src/scancode/pool.py	2021-11-04 20:21:58.536751013 -0500
+@@ -49,7 +49,7 @@
+     if func.__name__ != 'wrap':
+ 
+         def wrap(self, timeout=None):
+-            return func(self, timeout=timeout or 3600)
++            return func(self, timeout=timeout or 72000)
+ 
+         return wrap
+     else:

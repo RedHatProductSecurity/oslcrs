@@ -1,0 +1,220 @@
+# Script to produce PELC's idea of the set of licenses it knows about
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  4/19/23
+# Released under the GPL license, version 2
+
+
+import sys
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import os
+import argparse
+import psycopg2
+import getpass
+import json
+
+
+# Constants that don't change
+legend = ["Proposed", "Approved", "Rejected", "New", "Ignored", "Provisional"]
+try:
+    lic_url = os.environ['PELC_LICENSE_URL'] + '/'
+except Exception as e:
+    print("error: need URL for PELC licenses table",
+          "(missing PELC_LICENSE_URL environment variable)", e)
+    exit(1)
+try:
+    virtualdb = os.environ['VIRTUALDB_HOST']
+except Exception as e:
+    print("error: need hostname for virtual DB service provider",
+          "(missing VIRTUALDB_HOST environment variable)", e)
+    exit(1)
+
+
+# Might as well handle any command line errors first
+parser = argparse.ArgumentParser()
+
+# There are no required parameters.  These are optional ones.
+parser.add_argument("-b", "--only-license", metavar="licensename", type=str,
+                    default="",         # Default is to not skip any licenses
+                    help="produce information about only this license key")
+parser.add_argument("-j", "--json",
+                    action="store_true",
+                    help="produce json output instead of CSV")
+parser.add_argument("-n", "--count-only",
+                    action="store_true",
+                    help="produce only a count of licenses")
+parser.add_argument("-q", "--print-query",
+                    action="store_true",
+                    help="produce only the PELC DB query statement")
+parser.add_argument("-u", "--username", metavar="username", type=str,
+                    default=getpass.getuser(), # Default username is login id
+                    help="RH username for kinit authentication purposes")
+parser.add_argument("-pa", "--password", metavar="password", type=str,
+                    default="",                # Default is to use Kerberos
+                    help="LDAP password (use Kerberos if not provided)")
+parser.add_argument("-z", "--no-column-headings",
+                    action="store_true",
+                    help="do not produce column headings in output")
+
+# These filter results
+parser.add_argument("-fa", "--filter-approved",
+                    action="store_true",
+                    help="produce results only for approved licenses")
+parser.add_argument("-fu", "--filter-unapproved",
+                    action="store_true",
+                    help="produce results only for unapproved licenses")
+parser.add_argument("-fl", "--filter-legacy",
+                    action="store_true",
+                    help="produce results only for legacy licenses")
+parser.add_argument("-fn", "--filter-non-legacy",
+                    action="store_true",
+                    help="produce results only for non-legacy licenses")
+
+# These control which data is produced
+parser.add_argument("-ca", "--col-approval-state",
+                    action="store_true",
+                    help="include license approval state in output")
+parser.add_argument("-cil", "--col-is-legacy",
+                    action="store_true",
+                    help="include license \"is legacy\" state in output")
+parser.add_argument("-cib", "--col-is-bad",
+                    action="store_true",
+                    help="include license \"is bad\" state in output")
+parser.add_argument("-cio", "--col-is-local",
+                    action="store_true",
+                    help="include license \"is local\" state in output")
+parser.add_argument("-cu", "--col-url",
+                    action="store_true",
+                    help="include license home page (URL) in output")
+parser.add_argument("-cl", "--col-link",
+                    action="store_true",
+                    help="include PELC license link (license ID) in output")
+parser.add_argument("-cln", "--col-long-name",
+                    action="store_true",
+                    help="include the long (official) license name in output")
+parser.add_argument("-csn", "--col-short-name",
+                    action="store_true",
+                    help="include the short license name in output")
+parser.add_argument("-cx", "--col-spdx",
+                    action="store_true",
+                    help="include the SPDX license key in output")
+parser.add_argument("-ct", "--col-text",
+                    action="store_true",
+                    help="include the license text in output")
+
+args = parser.parse_args()              # Parse the arguments
+
+
+# Script config variables
+myuser = args.username                  # Username for kinit authentication
+count_only = args.count_only            # True if we skip output and only count
+
+
+if args.password != "":
+    con_str = f"dbname=public user='{myuser}' password='{args.password}' " + \
+              f"sslmode=require host={virtualdb} port=5432"
+else:
+    # use Kerberos / GSSAPI instead of prompting for a password
+    con_str = f"dbname=public user='{myuser}' sslmode=require " + \
+              f"krbsrvname=postgres host={virtualdb} port=5432"
+conn = psycopg2.connect(con_str)
+# Teiid does not support setting this value at all and unless we
+# specify ISOLATION_LEVEL_AUTOCOMMIT (zero), psycopg2 will send a
+# SET command the teiid server doesn't understand.
+#conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
+conn.set_isolation_level(0)
+cursor = conn.cursor()
+
+
+# Build a query statement based on command line options
+query = 'select '
+fields = []
+if args.col_approval_state:
+    fields += ['"packages_baselicense.approval_state" as "Approval_State"']
+if args.col_is_legacy:
+    fields += ['"packages_baselicense.is_legacy" as "Legacy"']
+if args.col_is_bad:
+    fields += ['"packages_baselicense.is_bad" as "Bad"']
+if args.col_is_local:
+    fields += ['"packages_baselicense.is_local" as "Local"']
+fields += ['"packages_baselicense.key" as "License_Key"']
+if args.col_link:
+    fields += ["concat('" + lic_url +
+              "', \"packages_baselicense.id\") as \"License_URL\""]
+if args.col_spdx:
+    fields += ['"packages_baselicense.spdx_license_key" as "SPDX_Key"']
+if args.col_short_name:
+    fields += ['"packages_baselicense.short_name" as "Short_Name"']
+if args.col_long_name:
+    fields += ['"packages_baselicense.name" as "Long_Name"']
+if args.col_url:
+    fields += ['"packages_baselicense.homepage_url" as "License_Home_Page"']
+if args.col_text:
+    fields += ['"packages_baselicense.license_text" as "License_Text"']
+query += ", ".join(fields)
+query += ' from PELC.packages_baselicense where '
+limits = []
+if args.only_license != "":
+    limits += ['packages_baselicense.key = \'%s\'' % args.only_license]
+if args.filter_approved:
+    limits += ['packages_baselicense.approval_state = 1']
+if args.filter_unapproved:
+    limits += ['packages_baselicense.approval_state != 1']
+if args.filter_legacy:
+    limits += ['packages_baselicense.is_legacy = 1']
+if args.filter_non_legacy:
+    limits += ['packages_baselicense.is_legacy != 1']
+limits += ['packages_baselicense.approval_state != 4']
+query += " and ".join(limits)
+query += ' order by License_Key; '
+
+
+# Mostly for debugging, list only the query statement
+if args.print_query:
+    print(query)
+    conn.close()
+    sys.exit(0)                         # Normal, though early return
+
+
+# if we're doing json, we need an output array
+if args.json:
+    output = []
+
+
+# Print licenses
+cursor.execute(query)
+rows = cursor.fetchall()
+cols = [t[0].replace("_", " ") for t in cursor.description]
+n = 0                                   # Keep track of how many lines of output
+for row in rows:
+    if args.json:
+        if not count_only:
+            output.append(dict(zip(cols, row)))
+    else:
+        if n == 0 and not args.no_column_headings and not count_only:
+            print(", ".join(cols))      # Produce column headings
+        if not count_only:
+            if args.col_approval_state:
+                print(legend[row[0]] + ",", ", ".join(str(x) for x in row[1:]))
+            else:
+                print(", ".join(str(x) for x in row))
+    n += 1
+
+
+# if json output, spit it out
+if args.json:
+    print(json.dumps(output))
+
+
+# Count of output lines
+if count_only:
+    print(n)
+
+
+# Close the DB connection
+conn.close()
+sys.exit(0)                             # Normal end of program

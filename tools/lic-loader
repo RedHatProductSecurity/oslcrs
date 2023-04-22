@@ -1,0 +1,146 @@
+# Script copy the PELC license table to our local report database.
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  4/7/22
+# Released under GPL version 2
+
+
+import sys                              # For misc system stuff like stderr
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import json
+import argparse                         # For command line arguments
+import pipes                            # To run other our other query commands
+import tempfile                         # Needed by pipes code
+import psycopg2                         # Database access
+from progress.bar import IncrementalBar # python3-progress on Debian
+
+
+# Parse any command line parameters; use -h or --help to get a summary
+parser = argparse.ArgumentParser()
+
+# We will at least need the report database access values and review IDs.
+# parameters could be optional in the future, but we need them now.
+parser.add_argument("-H", "--db-host", metavar="db_host", type=str,
+                    required=True,
+                    help="hostname of report DB server (required)")
+parser.add_argument("-U", "--db-user", metavar="db_user", type=str,
+                    required=True,
+                    help="DB username for report DB server (required)")
+parser.add_argument("-P", "--db-password", metavar="db_password", type=str,
+                    required=True,
+                    help="DB password for report DB server (required)")
+
+# These are optional arguments
+parser.add_argument("-po", "--port", type=str,
+                    default="5432",     # Default postgres port
+                    help="postgress port number (default is 5432)")
+parser.add_argument("-u", "--username", metavar="username", type=str,
+                    default="",         # Default is to skip this option
+                    help="RH username for kinit authentication purposes")
+parser.add_argument("-pa", "--password", metavar="password", type=str,
+                    default="",         # Default is to use Kerberos
+                    help="LDAP password (use Kerberos if not provided)")
+
+args = parser.parse_args()              # Parse the command line arguments
+
+# This passes the username if needed
+if args.username != "":
+    userarg = ' -u "%s"' % args.username
+else:
+    userarg = ""
+# If supplied, include the password argument
+if args.password != "":
+    userarg += ' -pa "%s"' % args.password
+
+
+# Open the database connection.  If this were to fail, it's better to know
+# before doing a bunch of other work.
+DBhost = args.db_host
+DBuser = args.db_user
+DBpassword = args.db_password
+DBdatabase = "OSLC"
+DBport = args.port
+try:
+    db = psycopg2.connect("host='%s' port='%s' user='%s' password='%s' dbname='%s'" % \
+                          (DBhost, DBport, DBuser, DBpassword, DBdatabase))
+    cdb = db.cursor()                   # Cursor object for SQL
+except Exception as e:
+    print("Failed to connect to report database")
+    print(e)
+    sys.exit(1)
+
+
+# We need a tempfile to make use of the pipes module
+t = tempfile.NamedTemporaryFile('r')
+
+
+# Begin by emptying the current contents of the license table.
+#
+# Note that this is the easy way because we don't need to detect differences
+# and make changes.  But the downside is that we can't use the DB to enfore
+# referential integrity of links to this table, because of this "emptying"
+# operation.  We'll need to change this in the future.
+sql = "TRUNCATE TABLE licenses"
+try:
+    cdb.execute(sql)
+    db.commit()
+except Exception as e:
+    db.rollback()
+    print("Failed to empty licenses table")
+    print(e)
+    sys.exit(1)
+
+
+# Read PELC license table contents from the licenses shell script
+p = pipes.Template()
+p.append(f"python3 licenses {userarg} -j -ca -cil -cib -cio -cu \
+          -cl -cln -csn -cx -ct", '--')
+# p.debug(True)
+f = p.open(t.name, 'r')
+try:
+    js = json.load(f)
+finally:
+    f.close()
+
+
+# Loop over the PELC license table entries, inserting each into the report DB
+bar = IncrementalBar('Transferring', max = len(js))
+for ss in js:
+    # Let the user know we're making progress
+    bar.next()
+
+
+    # Add this license to the database
+    sql = "INSERT INTO licenses \
+             (key, \
+              approved, legacy, bad, local, \
+              url, pelc_link, \
+              long_name, short_name, spdx, \
+              text) \
+            VALUES \
+              (%(License Key)s, \
+               %(Approval State)s, %(Legacy)s, %(Bad)s, %(Local)s, \
+               %(License Home Page)s, %(License URL)s, \
+               %(Long Name)s, %(Short Name)s, %(SPDX Key)s, \
+               %(License Text)s)"
+    try:
+        cdb.execute(sql, ss)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print("Database license insert failure, key:", ss['License Key'])
+        print(e)
+        sys.exit(1)
+
+
+# Finish the progress bar
+bar.finish()
+
+
+# Disconnect from the database
+db.close()
+exit(0)

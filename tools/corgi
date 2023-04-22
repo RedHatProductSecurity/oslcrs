@@ -1,0 +1,283 @@
+#! /bin/bash
+#
+# Script to query Corgi for basic stuff needed for reports.
+#
+# The script is given a single-word option for what type of information
+# is being requested, along with a parameter, often an ofuri, that provides
+# details about what is being queried.
+#
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula, 4/19/2023     Released under the GPL version 2
+
+
+import sys                              # General system stuff
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import os
+import argparse                         # Argument parsing
+import json                             # json support
+import re                               # regular expressions
+import requests                         # Corgi REST API access
+from urllib.parse import urlencode, quote_plus
+from packageurl import PackageURL       # Parse Corgi purls
+from progress.bar import IncrementalBar # progress bars
+
+
+# Constants that don't change
+MAXITEMS = 1000000                      # Maximum number of items that can be
+                                        # ever returned by Corgi.  This is an
+                                        # arbitrary, high limit.  Should it
+                                        # ever be reached, then we need to
+                                        # look at the situation and increase
+                                        # it or consider a different form of
+                                        # query.
+
+
+# Local functions
+# This function mainly parses purls, pulling out interesting information.
+# For convenience, it acts on the dictionary entry returned by the Corgi
+# summary view components query, and returns a dictionary of all the elements
+# of interest
+def corgi_component(p):
+    r = dict()
+
+    try:                                # Parse purl
+        purl = PackageURL.from_string(p["purl"])
+        dp = purl.to_dict()
+    except Exception as e:
+        print("error: failed to find Corgi purl in:", p, file=sys.stderr)
+        print("python error:", e.args[0], file=sys.stderr)
+        exit(1)
+    
+    r["type"] = dp["type"]
+    try:                                # Grab or generate nvr
+        r["nvr"] = p["nvr"]
+        r["status"] = "ok"
+    except:
+        try:
+            r["nvr"] = dp["name"] + "-" + dp["version"]
+            r["status"] = "ok"
+        except:
+            # print("warning: unknown nvr for:", dp, file=sys.stderr)
+            try:
+                r["nvr"] = dp["name"]
+                r["status"] = "missing-version"
+            except:
+                r["nvr"] = "unknown"
+                r["status"] = "missing-nvr"
+    r["purl"] = p["purl"]
+    r["dp"] = dp
+
+    return r
+
+
+# Query Corgi for json-based data, including error checking
+def corgi_query(url, debug, countable):
+    # Try the Corgi query
+    try:
+        cdata = requests.get(url)
+    except Exception as e:
+        print("error: Corgi REST API failure for url:", url, file=sys.stderr)
+        print("python error:", e.args[0], file=sys.stderr)
+        if 'cdata' in locals():
+            print("https status code:", cdata.status_code, file=sys.stderr)
+        exit(1)
+    if debug:
+        print("debug: successful Corgi requests.get()", file=sys.stderr)
+    # Parse returned json data
+    try:
+        jdata = cdata.json()
+        if countable:
+            count = jdata["count"]
+            if count >= MAXITEMS:
+                print(f"error: Corgi query reached MAXITEMS limit of {MAXITEMS}",
+                      file=sys.stderr)
+                exit(1)
+        else:
+            count = 1
+    except Exception as e:
+        print("error: failed to parse json data from Corgi REST API call for url:",
+              url, file=sys.stderr)
+        print("python error:", e.args[0], file=sys.stderr)
+        exit(1)
+    if countable and args.debug:
+        print(f"debug: Corgi returned {count} items", file=sys.stderr)
+    return jdata
+
+
+
+# Parse the command line and handle any command line errors first
+parser = argparse.ArgumentParser()
+# These are positional parameters
+parser.add_argument("command",
+                    choices=["product", "version", "stream", "component"],
+                    help="query type: product, version, stream, components")
+parser.add_argument("ofuri", nargs='?', default=None,
+                    help="ofuri required for all but 'product' queries")
+# Output control
+parser.add_argument("-d", "--debug", action='store_true',
+                    help="produce debug output")
+parser.add_argument("-j", "--json", action='store_true',
+                    help="produce json-formatted output")
+parser.add_argument("-q", "--quiet", action="store_true",
+                    help="try to avoid producing output")
+parser.add_argument("-w", "--warnings", action="store_true",
+                    help="list warnings in addition to errors")
+args = parser.parse_args()              # Parse the arguments
+# ofuri is required in most cases
+if args.command != "product" and args.ofuri == None:
+    print("error: ofuri is required for all but 'product' queries",
+          file=sys.stderr)
+    exit(1)
+if args.ofuri != None:
+    ofuri = args.ofuri
+
+# Set Corgi URL
+try:
+    corgi_url = os.environ['CORGI_API_URL'] + '/api/v1/'
+except Exception as e:
+    print("error: need access to Corgi",
+          "(missing CORGI_API_URL environment variable)", e)
+    exit(1)
+
+
+# Build Corgi query string
+if args.command == "product":
+    if args.ofuri != None:
+        print("error: can't use ofuri argument with product list command",
+              file=sys.stderr)
+        exit(1)
+    c_string = f"{corgi_url}products?limit={MAXITEMS}"
+    countable = True
+elif args.command == "version":
+    c_string = f"{corgi_url}products?ofuri={ofuri}&limit={MAXITEMS}"
+    countable = False
+elif args.command == "stream":
+    c_string = f"{corgi_url}product_versions?ofuri={ofuri}&limit={MAXITEMS}"
+    countable = False
+elif args.command == "component":
+    c_string = f"{corgi_url}components?ofuri={ofuri}&view=summary&limit={MAXITEMS}"
+    countable = True
+else:
+    print(f"error: unimplemented Corgi query command: {args.command}",
+          file=sys.stderr)
+    exit(1)
+if args.debug:
+    print(f"debug: Corgi query string is {c_string}", file=sys.stderr)
+
+
+# Try the Corgi query
+if not args.quiet:
+    print(f"Executing Corgi query...", file=sys.stderr)
+jdata = corgi_query(c_string, args.debug, countable)
+if not args.quiet:
+    print(f"...Corgi query returned", file=sys.stderr)
+
+
+# Grab interesting fields from the returned array.  Errors here may mean that
+# the Corgi return data format has changed.
+r = []                                  # Result array
+purls = []                              # List of purls in result array, purely
+                                        # for efficiency in locating duplicates
+try:
+    if args.command == "product":
+        for p in jdata["results"]:
+            r.append({"ofuri": p["ofuri"],
+                      "name": p["name"],
+                      "description": p["description"]})
+    elif args.command == "version":
+        for p in jdata["product_versions"]:
+            r.append({"ofuri": p["ofuri"],
+                      "name": p["name"]})
+    elif args.command == "stream":
+        for p in jdata["product_streams"]:
+            r.append({"ofuri": p["ofuri"],
+                      "name": p["name"]})
+    elif args.command == "component":
+        for p in jdata["results"]:
+            # PURLs need to be parsed in order to extract useful information
+            if p["purl"] not in purls:
+                purls.append(p["purl"])
+                r.append(corgi_component(p))
+    else:
+        print(f"error: unimplemented Corgi data parse command: {args.command}",
+              file=sys.stderr)
+        exit(1)
+except Exception as e:
+    print("error: failed to obtain expected data from Corgi, url:",
+          c_string, file=sys.stderr)
+    print("python error:", e.args[0], file=sys.stderr)
+    exit(1)
+if args.debug:
+    print(f"debug: Successfully parsed {len(r)} items", file=sys.stderr)
+
+
+# FIXME: The following code doesn't test for errors in what's returned
+# by Corgi.  Add this.
+# Recurse over top-level components, if this is a component query
+r2 = []                                 # Second-level results
+if args.command == "component":
+    bar = IncrementalBar('Processing top-level components', max = len(r))
+    for c in r:
+        bar.next()
+
+        # Behavior depends on component type
+        if c["type"] == "rpm":
+            if c["dp"]["qualifiers"]["arch"] != "src":
+                print("error: unimplemented RPM arch:",
+                      c["dp"]["qualifiers"]["arch"],
+                      file=sys.stderr)
+                if args.debug:
+                    print("debug:", c, file=sys.stderr)
+                exit(1)
+        elif c["type"] == "oci":
+            # Query this specific container to see what it "provides"
+            url = corgi_url + "components?" + \
+                  urlencode({"purl": c["purl"], "view": "summary",
+                             "limit": MAXITEMS}, quote_via = quote_plus)
+            if args.debug:
+                print("debug: container url is", url, file=sys.stderr)
+            oci = corgi_query(url, args.debug, False)
+            # Process returned "provides" array
+            for oc in oci["provides"]:
+                if args.debug:
+                    print("debug: processing", oc, file=sys.stderr)
+                if oc["purl"] not in purls:
+                    purls.append(oc["purl"])
+                    r2.append(corgi_component(oc))
+        else:
+            print("error: unimplemented component type:", c["type"],
+                  file=sys.stderr)
+            if args.debug:
+                print("debug:", c, file=sys.stderr)
+            exit(1)
+
+    bar.finish()
+
+
+# Simple sum of all components for now
+for item in r2:
+    r.append(item)
+
+
+# Produce the requested output
+if args.json:
+    if len(r) != 0:
+        print(json.dumps(r))
+else:
+    if args.command == "component":
+        # Print only a count of the result array
+        print(f"Output array is {len(r)} items")
+    else:
+        n = 0
+        for s in r:
+            if n == 0:
+                print(", ".join(s.keys()))
+            print(", ".join(s.values()))
+            n += 1
+
+exit(0)                                 # Early exit

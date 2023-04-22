@@ -1,0 +1,28 @@
+[
+  {
+    "product": {
+      "name": "test",
+      "displayname": "Source Container Test Product",
+      "description": "This isn't a real product.  It's just here to allow us to create some test cases, as different forms of source input is developed.",
+      "family": "Ad-hoc Reviews"
+    }
+  },
+  {
+    "container": {
+      "reference": "rhel7:7.9-476-source",
+      "src_packages": [
+      ]
+    }
+  },
+  {
+    "release": {
+      "productname": "test",
+      "version": "fake_release_1.0",
+      "notes": "This release consists of a single source container, for testing purposes.",
+      "containers": [
+        "rhel7:7.9-476-source"
+      ],
+      "src_packages": []
+    }
+  }
+]

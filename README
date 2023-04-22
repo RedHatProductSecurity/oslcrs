@@ -1,0 +1,153 @@
+			License Reporting Prototype
+
+
+Purpose and Background
+----------------------
+
+As part of an open source license compliance program, we have developed
+software to explore techniques that can accomplish license scanning
+for large volumes of open source software, in a production setting.
+The results of this license scanning should facilitate review of the
+licenses being redistributed as well as reporting license content to
+customers.  This project contains the data structures and code necessary
+to manage a prototype open source license reporting service.
+
+
+Operational Overview
+--------------------
+
+First, it's helpful to understand that there are two distinct portions
+of oslcrs:
+
+  1. oslcrs includes a set of database tables that maintain a "manifest"
+     of open source packages.  Each manifest is tied to the "release"
+     or "version" of a product, and the manifest includes the name,
+     version, and release (NVR) of each open source package.  These
+     release manifests may be organized around individual containers,
+     organized into products, and finally product families.
+
+  2. oslcrs maintains a library of open source packages that have been
+     scanned for license and copyright content.  Additionally, certain
+     package metadata is also captured and maintained.
+
+If a customer requests a report or we desire to examine the license
+content of the release of a product, the above two items are essentially
+"joined", in a database sense.  The specific release manifest dictates
+the exact set of packages involved, then the package metadata, license,
+and copyright results from each manifested package are combined to
+produce a report for the release.
+
+As an aside, this structure allows us to report on custom sets of
+packages, sets that might not correspond to a particular release of
+a product.  All that is necessary is for us to create a "manifest"
+for the desired report, then query the report for that "manifest".
+
+Finally, be aware that there's an additional piece of complexity in
+oslcrs.  We envisioned the eventual system needing to be loosely-coupled,
+with respect to the above two portions of oslcrs.  We expected that users
+might want to submit an individual package for scanning and view the
+license/copyright results for that package.  This might happen without the
+package being part of a product release.  So #2 above, needs to operate
+independently.  Similarly, we also envisioned receiving a release manifest
+(#1) for a product, even before all the packages in that manifest have
+been scanned.  So oslcrs needed to be designed to accept manifests that
+include versions of packages that have yet to be scanned.
+
+One additional note: Although the web UI is coming along in the area
+of exploring packages and licenses, we haven't put any effort into
+loading data through a UI.  Right now, all data is supplied through
+specifically-formatted json data structures.  We did this because it
+was the easiest way to get started, and ended up being a simple way of
+interfacing oslcrs to other tools.  If you're just kicking the tires,
+this will be an impediment.  Hopefully, this situation will change in
+a future release, or some kind soul will contribute some good UI code.
+
+With the above as background, let's consider one use case.  We might
+add some other use cases in an updated version of this README.
+
+CASE #1: Customer Requests a Report on a Specific Release of a Product
+
+Here, the first task is to obtain a list of packages that are associated
+with that product's release.  Obtaining this list is not within the
+scope of these tools.  Each product might do things differently, so
+it's likely that you might need to contact the product team to get
+the list of packages in that specific release.  (A sister repository,
+component-registry, is an example of a tool being used to collect the
+list of packages associated with product releases.)
+
+Assuming that you have a list of packages, one per line, the "manifest"
+script can help convert your list into a json structure that can be
+imported into oslcrs.
+
+If oslcrs doesn't already have an entry for this product, you'll need to
+add that as well.  As of this writing, there's no tool for this task, and
+it's probably easiest to grab a copy of the oslcrs/examples/product.json
+file, modify it with a text editor, and import that into oslcrs.
+Whenever you edit json files, be careful with quotes.  (The "jq" tool
+can help validate your json structures.)
+
+Once the manifest is imported, oslcrs can immediately produce a report for
+the packages it already knows about.  But at this point, you will probably
+find that additional packages need to be scanned.  The packages that need
+scan data show up as "Missing Packages" on the "Release Details" page.
+Clicking into this "Missing Packages Report" and using the "json format"
+link will allow you to capture this list of packages that need analysis.
+
+
+Software Overview
+-----------------
+
+Within this project, a "database" subdirectory contains the SQL statements
+and other tools necessary to create and maintain the database that backs
+the system.  See the README there for more details.
+
+The main application is "oslcrs.py".  It is a Flask application.
+Other files may be documented here as needed.
+
+
+Setting Up the Application
+--------------------------
+
+In a subdirectory of your choice, create a new subdirectory that will
+hold the application and all it's dependencies.  For example:
+
+  mkdir oslcrs-app
+
+Check out the current oslcrs code from github, for example:
+
+  cd oslcrs-app
+  git clone git@github.com:RedHatProductSecurity/oslcrs.git
+
+This will create a new subdirectory called "oslcrs" containing the main
+application code.  Within that new subdirectory is a shell script that
+will set up the application and any dependencies:
+
+  cd oslcrs; ./setup
+
+The application needs access to a postgres database that contains the
+application data.  We don't want to be creating this database with the
+"setup" script, or else your old analysis data will get wiped every time
+you do an update.  Instead, cd into the "database" subdirectory and see
+the instructions there in order to create your first oslcrs database.
+
+Since the database itself is outside control of the setup script, the
+application needs to know certain database parameters: database host,
+database user, etc.  These will need to be configured by you.  The "setup"
+script will create a template file to set these environment variables,
+but you'll need to adjust the values to suit your database configuration.
+The "setup" script will leave you some instructions.
+
+
+Running the Application
+-----------------------
+
+In order to run locally, you just need to run the oslcrs script.  Since
+the application may want to run unattended for long periods of time, you
+might want to us "nohup", or otherwise arrange for it to run as a service.
+
+There is a local file, oslcrs.service, that can be used from within
+/etc/init.d/ in order to automatically start oslcrs on a machine.
+To use this file, probably move it to /etc/init.d/, call it "oslcrs",
+fix permissions, etc.  The new service will need to be registered.
+The steps to do this are specific to the particular flavor of Linux
+you're running, and beyond the scope of this README.

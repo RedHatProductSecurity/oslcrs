@@ -1,0 +1,103 @@
+			License Report Database
+
+This project contains items necessary to create a license report database,
+and populate it with scanned data.  The following are present:
+
+postgresql_oslc.sql	These are the SQL statements that need to be
+			executed to create, from scratch, a PostgreSQL
+			database that can house product license
+			report data.  This is the third version of
+			the database.  Note that there is an included
+			SchemaSpy subdirectory that documents the
+			structure of the database.  In your local copy,
+			you can navigate to:
+			  file:///.../database/SchemaSpy/index.html
+
+Please note that this is a work in progress.  None of this is complete
+as of this commit.
+
+
+Initially Installing the DB
+---------------------------
+
+oslcrs relies on an existing, running, and configured PostgreSQL
+database.  The name of the database is passed to oslcrs.py as a shell
+variable, which works fairly well in a Docker environment as well as
+from the command line.
+
+Assuming you have "create database" capability on your postgres
+installation, you only need to source the SQL statements that are
+included in this subdirectory:
+
+  psql < postgresql_oslc.sql
+
+The part of this setup that requires more work is to create a postgres
+user that oslcrs can use, and allow it access to all the tables/views.
+This setup has not been scripted yet, so you'll need to do it by hand
+(or allow oslcrs to use a privileged postgres user) for now.
+
+Lastly, oslcrs requires a "licenses" table.  Although the above-mentioned
+SQL file creates the table structure, it does not fill this table with
+the necessary license data.  It probably makes sense to discuss the
+contents of this table here.
+
+The oslcrs "licenses" table is pretty-much a copy of the PELC licenses
+table.  In it are all the scancode license keys, some other reference
+information, and most importantly, the approval status of each license.
+Having this data is central to being able to identify license concerns
+in source packages that are analyzed.
+
+For the purposes of this prototype, once the OSLC database has been
+created, I have been running a script in the tools subdirectory,
+"tools/lic-loader" to fill up this license table based on the current
+contents of the Red Hat PELC licenses table.  Please refer to the tools
+subdirectory README for a description of how to run this tool.  This step
+needs to be done in order for the oslcrs prototype to function properly.
+
+In the future, license approval data will come from somewhere else,
+so the method of loading up the license approval data will change.
+
+One more note regarding maintenance of license approval data: As scancode
+is updated, it will begin to generate scancode license keys that are not
+part of the licenses table approval data.  When checking for approval
+status, the oslcrs code assumes licenses not present in the licenses
+table are "new" licenses, not yet reviewed.
+
+
+Updating this SQL
+-----------------
+
+The easiest way to make changes to the structure of the database is with
+a visual tool such as phpPgAdmin.  Once the database changes have been
+made, then the following command line tool can update the structure SQL
+from the currently-running database:
+
+  pg_dump -h db_host -p db_port -U db_user -W --create --no-owner \
+          --schema-only --file="postgresql_oslc.sql" OSLC
+
+Note that the above command requires you to have direct access to the
+database from whatever computer you're running it on.
+
+
+Updating the SchemaSpy Diagrams
+-------------------------------
+
+You will need a copy of schemaspy.  It's not packaged for my distribution,
+but is available from https://schemaspy.org.  It's a Java application,
+and you just need the .jar file saved into a subdirectory.  A version
+is saved in the current subdirectory.
+
+SchemaSpy needs a couple of other packages.  These are
+libpostgresql-jdbc-java and graphviz
+
+The Java application depends on a postgresql java access library.  It also
+needs to know where it's installed.  Due to all this and the complexity
+of passing in all the parameters, I've created a very small shell script
+used to execute schemaspy.  However, note that this is customized for
+oslcrs and it's current Linux distribution.  You may need to update the
+script to work on your computer.  The script is in this subdirectory.
+
+Typically, I will run the script as follows:
+
+  ./schemaspy -s public -db OSLC -u USER -p PASSWD \
+    -host DB_HOST -port DB_PORT -o ./SchemaSpy/

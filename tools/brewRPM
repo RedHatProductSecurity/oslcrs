@@ -1,0 +1,271 @@
+# Script to create source import and binary mapping json structures, for oslcrs
+# Note that this script requires at least Python 3.6 for f-string capability
+# vim: :set ts=8 et sw=4 sts=4
+#
+# Bryan Sutula  4/19/23
+# Released under the GPL license, version 2
+
+
+import sys
+pyver = sys.version_info
+if (int(pyver[0]) + int(pyver[1])/10) < 3.6:
+    print("error: this script requires Python 3.6 or greater")
+    sys.exit(1)
+import os
+import argparse
+import json
+import re
+import koji                             # Primary Brew API
+from progress.bar import IncrementalBar # python3-progress pkg on Debian
+
+
+# Constants that don't change
+
+
+# Local functions
+# This function attempts to remove common RPM and architecture suffixes
+# so that we're working with just NVRs.
+def nvr(package):
+    for suffix in [".rpm", ".src", ".noarch",
+                   ".aarch64", ".i686", ".ppc", ".ppc64", ".ppc64le",
+                   ".s390", ".s390x", ".x86_64"
+                  ]:
+        suffix_len = len(suffix)
+        if package[-suffix_len:] == suffix:
+            package = package[:-suffix_len]
+    return package
+
+
+# Locate a build based on an RPM name
+def locate_build_rpm(session, rpm):
+    try:
+        rpminfo = session.getRPM(rpm)
+        build = rpminfo['build_id']
+    except:
+        build = None
+    return(build)
+
+
+# Locate a build based on an NVR name
+def locate_build_nvr(session, nvr_name):
+    buildinfo = session.getBuild(nvr_name)
+    if buildinfo != None:
+        return(buildinfo['build_id'])
+
+    # In this case, the NVR might be that of a binary package, one who's
+    # name does not correspond to a source package.  Though the Brew
+    # search call is much slower, let's try harder to find this NVR.
+    rpmList = session.search(re.escape(nvr_name) + '.*', "rpm", "regexp")
+    # We might match a number of RPMs (different architectures) from the
+    # same build.  Simply return the first one who's NVR matches.
+    for rpmData in rpmList:
+        if nvr(rpmData['name']) == nvr_name:
+            build = locate_build_rpm(session, rpmData['id'])
+            return build            # Either a valid build ID or None
+    # Finishing the above loop without matching the name means we failed
+    return(None)
+
+
+# Parse the command line and handle any command line errors first
+parser = argparse.ArgumentParser()
+# There are no required parameters.  All are optional ones.
+# These control what type of output is provided
+parser.add_argument("-a", "--source-analysis", action="store_true",
+                    help="produce an array of source analysis oslcrs requests")
+parser.add_argument("-m", "--binary-mapping", action="store_true",
+                    help="produce an array of binary mapping oslcrs structures")
+# This enables output of warning messages
+parser.add_argument("-w", "--warnings", action="store_true",
+                    help="list warnings in addition to errors")
+# This reads intput from a json-formatted file, and assumes an NVR list instead
+# of a list of RPMs.
+parser.add_argument("-j", "--json-nvr", type=str, default="",
+                    help="read list of NVRs from a json file instead of stdin")
+args = parser.parse_args()              # Parse the arguments
+
+
+# Script global variables
+builds = []                             # This holds the data we collect from
+                                        # each build
+try:                                    # Need a koji session to access Brew
+    brew_url = os.environ['BREWHUB_URL']
+except Exception as e:
+    print("error: need access to brewhub",
+          "(missing BREWHUB_URL environment variable)", e)
+    exit(1)
+session = koji.ClientSession(brew_url)
+try:                                    # Source downloads may need base info
+    base_url = os.environ['BREW_FETCH_URL']
+except Exception as e:
+    print("error: need access to source download URL",
+          "(missing BREW_FETCH_URL environment variable)", e)
+    exit(1)
+
+
+# The way Brew works is centered on "builds".  Each RPM (whether binary or
+# source) is the product of a Brew build.  Therefore, this script runs in
+# two stages:
+#   1: Identify the "build" for each RPM (or NVR) of interest
+#   2: Produce the desired output from each identified "build"
+
+
+# As we read stdin, collect a list of build IDs.  If we're unable to locate a
+# Brew build for the input string, then kick out an error message, but we can
+# keep reading input.
+
+# Read whatever input we've received
+if args.json_nvr != "":
+    # This version the -j option, where we read NVRs from a json-formatted file
+    try:
+        with open(args.json_nvr, 'r') as f:
+            nvrs = json.load(f)
+        f.close()
+    except Exception as e:
+        print(f"Can't read NVRs from file {args.json_nvr} (json format)")
+        print(e)
+        sys.exit(1)
+    bar = IncrementalBar('Phase 1: locating NVRs in Brew   ', max = len(nvrs))
+    for nvr_name in nvrs:
+        bar.next()
+        build = locate_build_nvr(session, nvr_name)
+        if build == None:
+            print(f"error: unable to locate build for NVR {nvr_name}",
+                  file = sys.stderr)
+        elif build in builds:
+            if args.warnings:
+                print(f"warning: duplicate build {build} (skipped) \
+                        for NVR {nvr_name}", file = sys.stderr)
+        else:
+            builds.append(build)
+    bar.finish()
+else:
+    # This version reads a list of RPMs from standard input (stdin)
+    lines = [ l.strip() for l in sys.stdin.readlines() ] # Get all input
+    bar = IncrementalBar('Phase 1: locating RPMs in Brew   ', max = len(lines))
+    for l in lines:
+        bar.next()
+        build = locate_build_rpm(session, l)
+        if build == None:
+            print(f"error: unable to locate build for RPM {l}",
+                  file = sys.stderr)
+        elif build in builds:
+            if args.warnings:
+                print(f"warning: duplicate build {build} (skipped) \
+                        for RPM {l}", file = sys.stderr)
+        else:
+            builds.append(build)
+    bar.finish()
+
+
+# Debug info for now
+# print(builds)
+# sys.exit(0)
+
+
+# We need an output array
+output = []
+
+
+# Gather info for these builds into the output array
+# Note that if no output option is selected, then no output is produced.
+# Someone might want to do this in order to test a file of RPM names to see
+# if all are found in Brew.
+bar = IncrementalBar('Phase 2: creating json structures', max = len(builds))
+for build in builds:
+    bar.next()
+
+    # We'll need all the build info for this "build"
+    binfo = session.getBuild(buildInfo = build)
+    # print("Build info:", binfo)
+
+    # Some Brew builds have been "Deleted".  These are missing vital
+    # information.  Let user know of the missing package.
+    if binfo['state'] == 2:
+        print(f"Error: Brew build deleted, package {binfo['nvr']}",
+              file = sys.stderr)
+        continue
+
+    # Regardless of the output type, we need to know all RPMs built
+    rpms = session.listBuildRPMs(build)
+    # The logic of the code below requires that we see the "src" RPM first,
+    # then the RPMs from the other architecture types.  We're doing a little
+    # work to make sure the "src" rpm is first.
+    for n in range(len(rpms)):
+        if rpms[n]['arch'] == "src":
+            if n != 0:                  # Only move if not at the front
+                srpm = rpms.pop(n)      # Remove it from here
+                rpms.insert(0, srpm)    # Put it at the front
+                break;
+    # print(rpms)
+
+    # Process each rpm the Brew associates with this build
+    for rpm in rpms:
+        # print(f"Examining rpm {rpm['id']}, name {rpm['name']}, \
+        #         arch {rpm['arch']}")
+        if args.source_analysis:
+            # For this type of output, the root of the created structure is
+            # the arch type "src".
+            if rpm['arch'] == "src":
+                # print("Located srpm:")
+                # print(rpm)
+                headers = session.getRPMHeaders(
+                              rpmID = rpm['id'],
+                              headers=["license", "url"])
+                # print(headers)
+
+                fetch_url = base_url + \
+                            koji.pathinfo.build(binfo)[9:] + "/src/" + \
+                            binfo['nvr'] + ".src.rpm"
+                output.append({"source": {
+                                 "name": rpm['nvr'],
+                                 "custom": {
+                                   "fetch_url": fetch_url,
+                                   "upstream_url": headers['url'],
+                                   "license": headers['license'],
+                                   "binaries": []
+                                 }
+                               }
+                              })
+            else:                       # These are the binary mappings for
+                                        # this same source entry.
+                # Only add this entry if it's not already there
+                found = False
+                for b in output[-1]['source']['custom']['binaries']:
+                    if b['nvr'] == rpm['nvr']:
+                        found = True
+                        break
+                if not found:
+                    headers = session.getRPMHeaders(
+                                  rpmID = rpm['id'],
+                                  headers=["license"])
+                    output[-1]['source']['custom'] \
+                        ['binaries'].append({"nvr": rpm['nvr'],
+                                             "license": headers['license']})
+        if args.binary_mapping:
+            # For this type of output, ignore the arch type "srpm"
+            if rpm['arch'] != "src":
+                # Only add this entry if it's not already there
+                found = False
+                for b in output:
+                    if b['binary']['name'] == rpm['nvr']:
+                        found = True
+                        break
+                if not found:
+                    headers = session.getRPMHeaders(
+                                  rpmID = rpm['id'],
+                                  headers=["license"])
+                    output.append({"binary": {
+                                     "name": rpm['nvr'],
+                                     "license": headers['license'],
+                                     "source": binfo['nvr']
+                                   }
+                                  })
+bar.finish()
+
+
+# If we've produced any json output structures, spit them out
+if len(output) != 0:
+    print(json.dumps(output))
+
+
+sys.exit(0)                             # Normal end of program
